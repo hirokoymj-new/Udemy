@@ -47,4 +47,71 @@ foo(a);
 console.logo(a); //Object{moo: "too", too: "moo"}
 ```
 
-   
+
+```js
+"use strict";
+var a = 1;
+var b = {};
+function foo(x, y) {
+  x = 2;
+y.moo = 3;
+}
+ 
+foo(a, b);
+console.log("a = " + a + "; b = " + JSON.stringify(b));
+```
+
+- In NON-strict mode we can use any variable even if it's hasn't been defined with var.
+- In strict mode we can't use variables that have not been declared with var first.
+
+
+# Types and Equality
+What are the different types in javascript?
+- Boolean           //true/false
+- Number            //1, 1.0
+- String            //"a"
+- Null              //null
+- Undefined         //undefined
+- Object            //new Object || {} curly braces notation
+
+```js
+typeof(1) //"number"
+typeof('a') //string
+typeof(true) //boolean
+typeof(undefined) //undefined
+typeof(null) // object
+typeof({}) //object
+```
+- typeof(null) is 'object'.
+- A statically typed language like Java
+- A dynamically typed language like JavaScript
+
+# What is different between 'undefine' and 'null'?
+- undefined - it doesn't initialized with another value so it doesn't know what type of value. no value
+- null - 
+
+- `undefined` - JavaScript Engine inform you that it does NOT initialized with another value or an unknown property of an object.
+- `null` - null is used by a programmers to indicate 'no value'. JavaScript Engine will never set a value to null. A programmer (a human being) set a value to 'null'.
+
+```js
+null==undefined // true
+```
+
+# What is different between '==' and '==='?
+- '===' checkes for both type ad value equality.
+- '==' checkes the equlity of value only.
+
+
+
+
+# NaN (not a number)
+- NaN stands for 'not a number'.
+- Perhaps the result of a bad calculation. "abc"/4
+- NaN equal to ANYTHING is always false, even when compared to itself.
+ ```js
+"abc"/4 //NaN 
+
+typeof(NaN) //number
+
+NaN == NaN // false - NaN compared to itself is always false.
+```
