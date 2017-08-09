@@ -13,6 +13,7 @@
 - **Pass-by value** is to pass a copy of value.
 - **Pass-by reference** is to pass points.
 
+**Example of pass-by value**
 ```js
 "use strict";
 var a = 1;
@@ -22,10 +23,10 @@ function foo(a){
 foo(a);
 console.log(a); //1
 ```
-The value inside the function doesn't be effect in outer scope. 
+_The value inside the function doesn't be effect in outer scope._ 
 
    
-   
+**Example of pass-by reference**   
 ```js
 "use strict";
 var a = {};
