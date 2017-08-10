@@ -1,10 +1,15 @@
 # Udemy Advanced JavaScript
 
 ## "use strict" mode
-- It forces you to use valuables that have been declared with `var` keyword. This is to avoid accidentally declareing a gloval valuable.
+- It forces you to use valuables that have been declared with `var` keyword. This is to avoid accidentally declareing a global valuable.
+- In NON-strict mode we can use any variable even if it's hasn't been defined with var.
+- In strict mode we can't use variables that have not been declared with var first.
+
 - Waring reserved JavaScript keyword - ex. let
 - It can't delete functions or arguments. 
 - It's safer to use "eval()" in strict mode because the value doesn't leak out. In without strict mode, the value inside eval leaks.
+ 
+ 
  
 ## pass-by value and pass-by reference
  
@@ -61,8 +66,7 @@ foo(a, b);
 console.log("a = " + a + "; b = " + JSON.stringify(b));
 ```
 
-- In NON-strict mode we can use any variable even if it's hasn't been defined with var.
-- In strict mode we can't use variables that have not been declared with var first.
+
 
 
 # Types and Equality
@@ -87,9 +91,7 @@ typeof({}) //object
 - A dynamically typed language like JavaScript
 
 # What is different between 'undefine' and 'null'?
-- undefined - it doesn't initialized with another value so it doesn't know what type of value. no value
-- null - 
-
+- `undefined` - it doesn't initialized with another value so it doesn't know what type of value. no value
 - `undefined` - JavaScript Engine inform you that it does NOT initialized with another value or an unknown property of an object.
 - `null` - null is used by a programmers to indicate 'no value'. JavaScript Engine will never set a value to null. A programmer (a human being) set a value to 'null'.
 
@@ -98,7 +100,7 @@ null==undefined // true
 ```
 
 # What is different between '==' and '==='?
-- '===' checkes for both type ad value equality.
+- '===' checkes for both type and value equality.
 - '==' checkes the equlity of value only.
 
 
@@ -114,4 +116,56 @@ null==undefined // true
 typeof(NaN) //number
 
 NaN == NaN // false - NaN compared to itself is always false.
+```
+
+# How to edit and run a code in Chrome? 
+1. Open Chrome(any page) and right click and then select "inspect".
+2. Click on "Sources" tab on the top bar.
+3. Click on "Snippets" tab on the left side.
+4. Create new Snippet clicking on + New Snippet.
+5. To show console on the bottom, "customize and control Devtools" on the right side window and then select "Show console drawer".
+6. To run code, click on arrow button on the bottom bar in Sources window.
+
+**Shortcut** 
+- Comment/uncomment : "Cmd + /" 
+
+- [Using Code Snippets in Chrome Developer Tools](https://www.alexkras.com/using-code-snippets-to-test-save-and-reuse-javascript-code-in-chrome-developer-tools/)
+
+# this
+## Global scope
+`this` is always global object. In a browser it's `Window` object.
+
+## Inside a Function
+- Non-strict mode, this sets a global object which is `Window` object in a browser.
+- In strict mode, this is 'undefined'.
+- In use strict mode the default value of this is undefined
+- Because we are in use strict mode and not calling the function directly from the animal object, this is now undefined
+-In strict mode this defaults to undefined
+
+## Inside an object
+- If `this` is called in a function inside an object, `this` becomes "object" that is called on.
+- If `this` is called a nested function, it becomes "Windows" object. To avoid 
+- 'this’ refers to an object which ‘owns’ the method, but there is an exception. If this is called in a nested function, this becomes a global object. 
+This is different how it is called. To avoid the differences, to define new valuable on the top of the function and then add this into self valualbe.  
+
+
+
+
+# call vs apply
+- The first param to the apply function is used as the "this" variable, the array is then used for each of the params to the function being called
+
+
+# function vs function expression
+**Function**
+```js
+function test(){
+    console.log("hello");
+}
+```
+
+**Function Expression**
+```js
+var a = function(){
+    console.log("hello");
+}
 ```
