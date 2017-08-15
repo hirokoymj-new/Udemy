@@ -151,7 +151,7 @@ This is different how it is called. To avoid the differences, to define new valu
 
 
 
-# call vs apply
+# call, apply and bind
 - The first param to the apply function is used as the "this" variable, the array is then used for each of the params to the function being called
 
 
@@ -168,4 +168,188 @@ function test(){
 var a = function(){
     console.log("hello");
 }
+```
+
+
+example of bind()
+
+```js
+var sayHello = function(last_name){
+    console.log("Hello" +  this + " " + last_name)
+}.bind("Hiroko");
+
+sayHello("Yamaji"); // Hello Hiroko Yamaji 
+```
+
+
+# What is the prototype chain?
+- Every object will inherit from one of the objects - even if you create an empty object A, the object A inherite a base object.
+- New object can create an existing object.
+- Using `Object.create()` method, an object can inherit an another objects.
+- Using `object.isPrototypeOf()` method, you can see what a parent object is.  
+- [Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+
+# what is the scope chain? (section 4)
+
+- First, Lexical Scope (also called Static Scope), in C-like syntax: Every inner level can access its outer levels.
+- The scope chain means that Javascript looks for code their own scope first. If there is a problem, it looks outer scope. If there is a problem in next outer scope, it looks another outer scope. It keep continuing to reach global scope. It is the scope chain.
+- How Javascript resolves a variable. It looks inside inner scope first. then the outer scope until it finds a variable. The most outer scope is global scope. If it can't find a variable, an error happens.
+- the variables are resolved in the order in which the code is written on the page.
+
+
+**example 1**
+```js
+function foo(){
+    console.log(myvar);
+}
+
+function goo(){
+    var myvar = 1;
+    foo();
+}
+
+goo();// ReferenceError: myvar is not defined.
+```
+
+
+**correction of example 1**
+
+```js
+function goo(){
+    var myvar = 1;
+    function foo(){
+        console.log(myvar);
+    }
+    foo();
+}
+
+goo();// 1
+```
+
+# What is IIFE and why might be use it?
+- Immidiately invoked function
+- IIFE has an own executed scope.
+
+1) Delete function name, which is anonymouse function. 
+2) Wrap the anonymouse function in some brackets. 
+3) Add bracket to invoke a function that usually invoke a function.
+
+**Function**
+```js
+function test(){
+    console.log('hello');    
+}
+```
+
+**Immediately Invoked Function Expression**
+```js
+(function (){
+    console.log('hello');
+})();
+```
+
+
+# Section 4
+# What is the variable hoisting?
+
+
+**Variable**
+
+```js
+"use strict";
+console.log(a); //undefined
+var a = "test";
+```
+
+**Function**
+```js
+"use strict";
+foo(); // hiroko
+function foo(){
+ 	console.log('hiroko');
+};
+
+```
+**anonymouse function assigned to a variable**
+```js
+"use strict";
+foo(); // error
+var foo = function(){
+	console.log('hiroko');
+};
+
+```
+
+- A variable and a function are automatically hoisting from top in the page. For example, if a variable `A` is called in the first line and the second line, 'A' is declared and assigned to "TEST", JavaScript Engine is assigned to "undefine" for first line and there is no error.
+- Above rule is same as a function.
+- But if an anonymouse function that assigned to a variable, the function must execute after the variable. 
+ 
+
+# What is scope chain?
+- The scope chain is how JavaScript resolve a variable.
+- JavaScript Engine looks for a variable its own inside scope first. Then if there is no a variable in the scope, it looks for **an outer scope until to find a variable**. 
+- JavaScript looks for a variable its own inside scope first. If it doesn’t find it, it looks for next outer scope. JavaScript keep looking a variable until it is find. If the search reaches to a global scope, it is stopped.
+
+**Example**
+
+```js
+function foo(){
+	console.log(myvar);
+}
+
+function goo(){
+	var myvar = 1;
+	foo();
+}
+
+goo();// error myvar is not defined.
+```
+
+# What is IIFE and why might you use it?
+
+- IIFE is `Immediately Invoked Function Expression`.
+
+**main.js** - when the main.js file is called, the below function is automatically invoked.
+
+```js
+// main.js
+(function () {
+    var thing = {"hello": "main"};
+    console.log(thing);
+})(); //<-- invoked itself!!
+
+
+```
+
+# What are function closure?
+
+**Variable Lifetime**
+- Global variables live as long as your application (your window / your web page) lives.
+- Local variables have short lives. They are created when the function is invoked, and deleted(reset) when the function is finished.
+
+```js
+var foo = [];
+for(var i=0; i<10; i++){
+    foo[i] = function(){return i}
+}
+console.log(foo[0]()); //10
+console.log(foo[1]()); //10
+console.log(foo[2]()); //10
+```
+
+
+
+```js
+var foo = [];
+for(var i=0; i<10; i++){
+    (function(){
+        var y = i;
+        foo[i] = function(){return y}
+
+    })();
+
+}
+console.log(foo[0]()); //0
+console.log(foo[1]()); //1
+console.log(foo[2]()); //2
 ```

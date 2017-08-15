@@ -1,3 +1,11 @@
-/**
- * Created by hiroko on 8/10/17.
- */
+"use strict";
+
+/*
+var thing = {"hello": "main"};
+console.log(thing);*/
+
+
+(function () {
+    var thing = {"hello": "main"};
+    console.log(thing);
+})();
