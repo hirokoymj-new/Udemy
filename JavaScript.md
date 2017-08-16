@@ -133,21 +133,177 @@ NaN == NaN // false - NaN compared to itself is always false.
 
 # this
 ## Global scope
-`this` is always global object. In a browser it's `Window` object.
+- `this` is always global object no matter strict mode or non-strict mode. In a browser a global object is Window, In Node, the global object is global object.
+
+| Mode | Description |
+| --- | --- |
+| Non strict mode | global object |
+| strict mode | global object |
+
+
+```js
+console.log(this); // Window Object
+```
+
+```js
+"use strict";
+console.log(this); // Window Object
+```
+
 
 ## Inside a Function
 - Non-strict mode, this sets a global object which is `Window` object in a browser.
-- In strict mode, this is 'undefined'.
-- In use strict mode the default value of this is undefined
-- Because we are in use strict mode and not calling the function directly from the animal object, this is now undefined
--In strict mode this defaults to undefined
+- In strict mode, the default value of this is `undefined`.
+
+| Mode | Description |
+| --- | --- |
+| Non strict mode | global object |
+| strict mode | undefined |
+
+```js
+function test(){
+    console.log(this);
+}
+test();// Window object
+```
+
+```js
+"use strict";
+function test(){
+    console.log(this);
+}
+test();// undefined
+```
+
 
 ## Inside an object
-- If `this` is called in a function inside an object, `this` becomes "object" that is called on.
-- If `this` is called a nested function, it becomes "Windows" object. To avoid 
-- 'this’ refers to an object which ‘owns’ the method, but there is an exception. If this is called in a nested function, this becomes a global object. 
-This is different how it is called. To avoid the differences, to define new valuable on the top of the function and then add this into self valualbe.  
 
+> We might want to conclude `this` is pointed to the object that the function declared but there are many differences. 'this' is determined how is called in a object.
+- If `this` is called in a function inside an object, `this` becomes "object" that is called on.
+
+**`this` is called a function directly from the object.**
+
+| Mode | Description |
+| --- | --- |
+| Non strict mode | object |
+| strict mode | object |
+
+```js
+var person = {
+    name: "Hiroko",
+    getName: function(){
+        console.log(this.name);
+    },
+    prop:{
+        name: "Grace",
+        getName: function(){
+            console.log(this.name);
+        }  
+    }
+}
+
+person.getName();//hiroko
+person.prop.getName(); //Grace
+```
+
+
+```js
+"use strict";
+var person = {
+    name: "Hiroko",
+    getName: function(){
+        console.log(this.name);
+    },
+    prop:{
+        name: "Grace",
+        getName: function(){
+            console.log(this.name);
+        }  
+    }
+}
+
+person.getName();//hiroko
+person.prop.getName(); //Grace
+```
+
+
+
+**`this` is Not called the function directly from the object.**
+
+| Mode | Description |
+| --- | --- |
+| Non strict mode | undefined |
+| strict mode | undefined |
+
+```js
+var person = {
+    name: "Hiroko",
+    getName: function(){
+        console.log(this.name);
+    },
+};
+
+var func = person.getName;
+func();// undefined
+```
+
+```js
+"use strict";
+var person = {
+    name: "Hiroko",
+    getName: function(){
+        console.log(this.name);
+    },
+};
+
+var func = person.getName;
+func();// undefined
+```
+
+
+
+**`this` is called the nested function from the object directly.**
+- In non strict mode, `this` becomes a global object again. A programmer has to avoid this problem. The solution is to use "use strict" and to define `var self` variable and stored this on the top. 
+
+| Mode | Description |
+| --- | --- |
+| Non strict mode | global object |
+| strict mode | undefined |
+
+```js
+var person = {
+    name: "Hiroko",
+    getName: function(){
+        console.log(this.name);
+        function checkNexted(){
+        	console.log(this);
+        }
+        checkNexted();
+    },
+};
+
+person.getName();
+//Hiroko
+// Window
+```
+
+```js
+"use strict";
+var person = {
+    name: "Hiroko",
+    getName: function(){
+        console.log(this.name);
+        function checkNexted(){
+        	console.log(this);
+        }
+        checkNexted();
+    },
+};
+
+person.getName();
+// Hiroko
+// undefined
+```
 
 
 
@@ -353,3 +509,8 @@ console.log(foo[0]()); //0
 console.log(foo[1]()); //1
 console.log(foo[2]()); //2
 ```
+
+# Section 5
+# What is Constructor OO Pattern?
+- function constructor
+- `new` keyword
