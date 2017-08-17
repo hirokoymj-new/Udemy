@@ -115,3 +115,7 @@
 //
 // }
 
+
+console.log(Math.floor(Math.random()*10));
+var answer = 0;
+while( Math.floor(Math.random()*10)!==5 )
