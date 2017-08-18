@@ -16,3 +16,4 @@ myFish.splice(index_mandarin, 1);
 console.log(myFish); //[ 'angel', 'clown', 'sturgeon' ]
 
 ```
+

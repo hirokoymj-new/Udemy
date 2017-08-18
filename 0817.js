@@ -1,57 +1,71 @@
-var array = [3,6,1,7];
+"use strict";
 
-// function greaterThan(array, num){
+
+// function sayHello(name){
+//     var text = "Hello " +  name;
 //
-//     var newArray = array.reduce(function(accumulator, currentValue){
-//         if(currentValue > num){
-//             var len = accumulator.push(currentValue);
-//         }
-//         return accumulator;
-//     }, []);
-//     return newArray;
+//     function greeting(){
+//         console.log(text);
+//     }
+//     return greeting;
+//
 // }
 //
-// console.log(greaterThan(array, 5));
-
-// var newArray = arr.filter(callback[, thisArg])
-
-
-// function greaterThan2(array, num){
 //
-//     var newArray = array.filter(function(currentValue){
-//         return currentValue>num;
-//     });
-//     return newArray;
-// }
-//
-// console.log(greaterThan2(array, 1));
-//
-// var result = array.reduce(function(accumulator, currentValue, currentIndex){
-// }, initialValue);
+// var greeting  = sayHello("Hiroko");
+// greeting();
 
+function gameSetUp(){
+    var array = [0,1,2,3,4,5,6,7,8,9,10];
 
+    function drawCard(){
+        var len = array.length;
+        var randomNum = Math.floor(Math.random() * (len));//0-10
+        var deleteNum = array[randomNum];
 
-// function total(array){
-//     var result = array.reduce(function(accumulator, currentValue){
-//         return accumulator + currentValue;
-//     }, 0);
-//     return result;
-// }
-//
-// console.log(total([0,1,2,3]));//6
+        array.splice(array.indexOf(deleteNum),1);
+        console.log("randomNum: " +  randomNum);
+        console.log("deletedNum:" + deleteNum);
+        console.log("remains: " + array);
 
-var array2 = [12, 5, 8, 130, 44];
-
-function isBig(array, num){
-
-    var result = array.reduce(function(accumulator, currentValue){
-        if(currentValue > num){
-            var len = accumulator.push(currentValue);
-        }
-        return accumulator;
-    }, []);
-
-    return result;
+        return deleteNum;
+    }
+    return drawCard;
 }
 
-console.log(isBig(array2, 10));
+
+function playGame(players){
+    var drawCard = gameSetUp();
+
+    // game begin
+    var count = 0;
+    while(true){
+        var myCard = drawCard();
+        console.log("Player: " + players[count]);
+        console.log("myCard: " + myCard);
+
+        if(myCard == 5){
+            console.log('game over');
+            break;
+        }
+
+        count++;
+        if(count == players.length){
+            count = 0;
+        }
+        console.log("---------");
+    }
+}
+
+var players = ["A","B","C"];
+playGame(players);
+
+// makeCard [0-52] total is 53//
+// drawCard
+// gameOverCard = 52;
+// playGame
+
+
+
+
+
