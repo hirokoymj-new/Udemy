@@ -49,3 +49,71 @@ console.log(foo[1]());
 console.log(foo[2]());
 ```
 
+**Example 4** 
+```js
+function numberGenerator() {
+  // Local “free” variable that ends up within the closure
+  var num = 1;
+  function checkNumber() { 
+    console.log(num);
+  }
+  num++;
+  return checkNumber;
+}
+
+var number = numberGenerator();
+number(); //2
+```
+
+**Example 5**
+```js
+function sayHello() {
+  var say = function() { console.log(hello); }
+  // Local variable that ends up within the closure 
+  var hello = 'Hello, world!';
+  return say;
+}
+var sayHelloClosure = sayHello(); 
+sayHelloClosure(); // ‘Hello, world!’
+```
+
+**Example 6**
+```js
+var x = 10;
+function foo(a) {
+  var b = 20;
+
+  function bar(c) {
+    var d = 30;
+    return boop(x + a + b + c + d);
+  }
+
+  function boop(e) {
+    return e * -1;
+  }
+
+  return bar;
+}
+
+var moar = foo(5); // Closure  
+
+moar(15); //-80 
+```
+
+
+```js
+var x = 10;
+
+function foo() {
+  var y = 20; // free variable
+  function bar() {
+    var z = 15; // free variable
+    return x + y + z;
+  }
+  return bar;
+}
+
+var test = foo();
+
+test(); // 45
+```
