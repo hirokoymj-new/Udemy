@@ -100,6 +100,7 @@ var moar = foo(5); // Closure
 moar(15); //-80 
 ```
 
+**Example 7**
 
 ```js
 var x = 10;

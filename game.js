@@ -36,7 +36,9 @@ console.log("newArray: " + newArray);
 // }
 
 
-
+// make a card = heart, club, diamond, spade = (4 x 13) + joker = 53
+// generate a random number - range is 0-num Math.random()x
+// card = card.splice(x,1)
 
 
 

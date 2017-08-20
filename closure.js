@@ -58,18 +58,22 @@
 //1>1, false, 1
 
 
-var x = 10;
+// var x = 10;
+//
+// function foo(){
+//     var y = 20;
+//
+//     function bar(){
+//         var z = 15;
+//         var output = x + y + z;
+//         return output;
+//     }
+//     return bar;
+// }
+//
+// var test = foo();
+// console.log(test()); //45
 
-function foo(){
-    var y = 20;
 
-    function bar(){
-        var z = 15;
-        var output = x + y + z;
-        return output;
-    }
-    return bar;
-}
 
-var test = foo();
-console.log(test()); //45
+(function f(n){return ((n > 1) ? n * f(n-1) : n)})(4);
