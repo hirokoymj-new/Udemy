@@ -1,4 +1,5 @@
 # What are different types in JavaScript?
+- Five primitive types and an object.
 
 **Example 1**
 ```js
