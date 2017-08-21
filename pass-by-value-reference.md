@@ -6,7 +6,7 @@
 
 **Example 1** 
 - pass-by value
-- The variable `a` in the function `foo` is only visible inside the function foo().
+- The variable `a` in `foo` function is only visible inside the `foo` function.
 
 ```js
 "use strict";
