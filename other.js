@@ -7,10 +7,3 @@
 
 
 
-/*
-function OtherScope() {
-    var thing = {"hello": "other"};
-    console.log(thing);
-}
-
-OtherScope();*/
