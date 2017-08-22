@@ -18,7 +18,6 @@ function goo(){
 }
 goo();
 ```
-- myvar is NOT available inside foo function.
 
 
 **Fixed Example 1**
