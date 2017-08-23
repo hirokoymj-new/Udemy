@@ -1,4 +1,4 @@
-# IIFE Immidiately invoked function
+# IIFE Immidiately invoked function
 - IIFE - Immidiately Invoked Function Expression
 - Once the file is loaded, IIFE invokes- there is no need to call function name bracket`()`.
 
