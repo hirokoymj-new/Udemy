@@ -144,4 +144,24 @@ person.getName();
 ```
 ## Summary
 
-![this](http://www.hirokoymj.com/images/JavaScript-this.png)
+![this](http://www.hirokoymj.com/images/JavaScript-this_updated.png)
+
+
+```js
+var fullname = 'John Doe';
+var obj = {
+   fullname: 'Colin Ihrig',
+   prop: {
+      fullname: 'Aurelio De Rosa',
+      getFullname: function() {
+         return this.fullname;
+      }
+   }
+};
+
+console.log(obj.prop.getFullname());// Aurelio De Rosa
+
+var test = obj.prop.getFullname; 
+
+console.log(test()); //John Doe
+```
