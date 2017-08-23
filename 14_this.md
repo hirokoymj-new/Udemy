@@ -32,8 +32,7 @@ function test(){
 test();// undefined
 ```
 
-- In strict mode, the default value of this is `undefined`. In non-strict mode, this sets a global object.
-
+- In strict mode, the default value of this is `undefined`. Use strict mode **STOP this object being the global object** becuase most of the time, we don't want this to be a global object. 
 ## In Object (`this` is called in a function of Object)
 
 **Non-strict mode**
@@ -79,6 +78,7 @@ person.prop.getName(); //Grace
 
 **Non-strict mode**
 ```js
+var name = 'Tom';
 var person = {
     name: "Hiroko",
     getName: function(){
@@ -87,12 +87,13 @@ var person = {
 };
 
 var func = person.getName;
-func();// undefined
+func();//Tom
 ```
 
 **Strict mode**
 ```js
 "use strict";
+var name = 'Tom';
 var person = {
     name: "Hiroko",
     getName: function(){
@@ -101,7 +102,7 @@ var person = {
 };
 
 var func = person.getName;
-func();// undefined
+func(); //Cannot read property 'name' of undefined
 ```
 
 ## In Object with a nested function
@@ -144,7 +145,7 @@ person.getName();
 ```
 ## Summary
 
-![this](http://www.hirokoymj.com/images/JavaScript-this_updated.png)
+![this](http://www.hirokoymj.com/images/JavaScript-this_updated2.png)
 
 
 ```js
