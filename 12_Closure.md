@@ -118,3 +118,6 @@ var test = foo();
 
 test(); // 45
 ```
+
+## References
+ - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
