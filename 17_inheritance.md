@@ -7,7 +7,7 @@
 
  **Inheritance**          
            
-| Prototypal  | classical  |
+| Prototypal (JavaScript) | classical (Java, C++)  |
 |---|---|
 | Prototypal Pattern  |   |
 |  Pseudo-Classical Pattern |   |           
