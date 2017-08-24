@@ -57,9 +57,9 @@ var dude = new Person("Hiroko", "Yamaji");
 console.log(dude.full_name());
 ```
 
-**Example 4**  - How to add a function in function constructor.
-1) Define a function **in** a body of a function constructor.
-2) Extending prototype properties, which is **outside body** of a function constructor.
+**Example 4**  - How to add a function in a function constructor.
+1) Define a function **IN** a body of a function constructor.
+2) Extending prototype properties, which is **OUTSIDE body** of a function constructor.
 
 ```js
 function Person(first_name, last_name){
