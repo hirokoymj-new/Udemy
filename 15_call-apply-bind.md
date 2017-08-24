@@ -214,7 +214,6 @@ asim.func(); //1
 
 
 Example - bind() doesn't work the declaring a function. it only works with function expression.
-// Syntax error
 ```js
 function a(){
     console.log(this);
