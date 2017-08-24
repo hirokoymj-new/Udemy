@@ -41,7 +41,7 @@ console.log(asim.toString());
 //     console.log(this);
 // }
 ```
-## Call()
+## call()
 
 ```js
 function asim(){
