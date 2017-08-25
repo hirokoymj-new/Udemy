@@ -22,6 +22,10 @@ console.log(animal.kind); //human
 
 ## Object.create() function
 
+**Syntax**
+
+Object.create(proto, {name: {value: "iPad"}})
+
 
 ```js
 var animal = {
