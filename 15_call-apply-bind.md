@@ -1,11 +1,15 @@
 # call, apply and bind
 
 
-- In Javascript, `this` value is **unstable**. `this` value depends on how `this` keyword calls and also it's different between non-static mode and use static mode
-- call(), apply() and bind() use to stabilize `this` value in a function.
+- In Javascript, `this` value is **unstable**. It depends on how `this` calls. Also it's different behavior in `non-static mode` and `static mode`.
+- call(), apply() and bind() use **to stabilize** `this` value in a function.
  
+## Function properties
+- Function.name
+- Function.length
+- Function.prototype.toString()
 
-**Example - A function property:  name**
+**name**
 ```js
 function test(){
     console.log(this);
@@ -13,7 +17,7 @@ function test(){
 console.log(test.name);//test
 ```
 
-**Example - A function property:  length**
+**length**
 
 ```js
 function test(param1, param2){
@@ -22,7 +26,7 @@ function test(param1, param2){
 console.log(test.length);//2
 ```
 
-**Example - A function is an object so try to add a property moo.**
+**Add a property**
 ```js
 function asim(param1, param2){
     console.log(this);
@@ -31,7 +35,9 @@ asim.moo = 1;
 console.log(asim.name);
 ```
 
-**Example - Using a funciton on a function - toString()**
+## Function Method
+**Function.toString()**
+
 ```js
 function asim(param1, param2){
     console.log(this);
@@ -41,6 +47,7 @@ console.log(asim.toString());
 //     console.log(this);
 // }
 ```
+## Function Methods - call, apply and bind
 ## call()
 
 ```js
@@ -240,3 +247,12 @@ var asim = {
 asim.checkThis();
 
 ```
+
+## References:
+- [MDN - Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+- [MDN - Function.name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name)
+- [MDN - Function.length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length)
+- [MDN - Function.call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [MDN - Function.apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+- [MDN - Function.bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+
