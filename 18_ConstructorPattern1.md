@@ -53,7 +53,7 @@ var dude = new Person("Hiroko", "Yamaji");
 console.log(dude.full_name());
 ```
 
-**Example 4**  - How to add a function in a function constructor.
+**Example 4 - How to add a function in a function constructor**
 1) Defining a function **IN** a body of a function constructor.
 2) Extending prototype properties **OUTSIDE body** of a function constructor.
 
@@ -74,7 +74,7 @@ console.log(dude.full_name());
 console.log(dude.get_first_name());
 ```
 
-**Example 4 - private variable in a fucntion constructor** 
+**Example 5 - private variable in a fucntion constructor** 
 - Defining a function in body ONLY can set up a private variable.
 - Below example, first_name is overwritten to "Grace" but it didn't affect in Person constructor.
 
