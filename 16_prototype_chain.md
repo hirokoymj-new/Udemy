@@ -1,7 +1,6 @@
 # Prototype chain
 
-- All objects in javascript have a prototype property. When object "A" is created based on existing object "B", "A" has all properties and methods that object "B" has. That is "Prototype chain".
-- New object is created based on an existing object, the new object inheritances all properties and methods that the existing object has - that is "Prototype chain".
+- All objects in javascript have a prototype property. When object "A" is created based on existing object "B", "A" inheritances all properties and methods that object "B" has. That is "Prototype chain".
 
  
 ```js
