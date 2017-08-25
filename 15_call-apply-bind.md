@@ -1,7 +1,7 @@
 # call, apply and bind
 
 
-- In Javascript, this value is NOT unstable in JavaScript. `this` value depends on how this calls and also it's different between non-static mode and use static mode
+- In Javascript, this value is unstable. `this` value depends on how `this` keyword calls and also it's different between non-static mode and use static mode
 - call(), apply() and bind() use to stabilize `this` value in a function.
  
 
