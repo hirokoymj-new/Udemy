@@ -1,14 +1,16 @@
 # Prototype chain
 
-- every object will inherit from one of the objects.
-- the objects in Javascript are linked to others in what is called a prototype chain.
+- All objects in javascript have a prototype property. When object "A" is created based on existing object "B", "A" has all properties and methods that object "B" has. That is "Prototype chain".
+- New object is created based on an existing object, the new object inheritances all properties and methods that the existing object has - that is "Prototype chain".
 
+ 
 ```js
+// Animal object
 var animal = {
     kind: "human"
 }
-console.log(animal);
 
+// asim object
 var asim = {};
 asim.__proto__ = animal;
 console.log(asim.kind);
@@ -17,24 +19,20 @@ asim.kind = 'igloo';
 console.log(asim.kind); //igloo
 console.log(animal.kind); //human
 ```
-- asim object doesn't have kind property but its prototype is actually the 
+- asim object doesn't have kind property but its prototype is actually inheritance from animal object.
 
-## Object create function
-- Object.create()
+## Object.create() function
+
 
 ```js
 var animal = {
     kind: "human"
 }
-console.log(animal);
-
-// var asim = {};
-// asim.__proto__ = animal;
 
 var asim = Object.create(animal);
-
 console.log(asim.kind);
 console.log(animal.isPrototypeOf(asim));//true
+
 asim.kind = 'igloo';
 console.log(asim.kind); //igloo
 console.log(animal.kind); //human
@@ -56,3 +54,4 @@ console.log(asim.food);//mango
 
 ## References:
 - [MDN: Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+- [MDN: Object.isPrototypeOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf)
