@@ -83,7 +83,8 @@ function Person(first_name, last_name){
     this.first_name = first_name;
     this.last_name = last_name;
     this.full_name = function(){
-        return first_name + " " + last_name; // first_name and last_name in closure are PRIVATE, NOT PUBLIC - CAN'T OVERWRITTEN!!!
+        return first_name + " " + last_name; // first_name and last_name in closure are PRIVATE.
+                                             // NOT PUBLIC - CAN'T OVERWRITTEN!!!
     }
 }
 Person.prototype.get_first_name = function () {
