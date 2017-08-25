@@ -3,12 +3,8 @@
 - `new` keyword
 - instance
 - inheritance
-- An instance can share same prototype and the function from constructor.
-
-**8/24 updates** 
 - The mimic concept of `class` in other language ==  **function constructor** 
 - all objects in javascript have a **prototype property**.
-- They all share the same prototype and the function.
 - When we need to create multiple instances, a class concept is very useful.
 
 
@@ -58,8 +54,8 @@ console.log(dude.full_name());
 ```
 
 **Example 4**  - How to add a function in a function constructor.
-1) Define a function **IN** a body of a function constructor.
-2) Extending prototype properties, which is **OUTSIDE body** of a function constructor.
+1) Defining a function **IN** a body of a function constructor.
+2) Extending prototype properties **OUTSIDE body** of a function constructor.
 
 ```js
 function Person(first_name, last_name){
