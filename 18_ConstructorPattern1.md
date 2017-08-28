@@ -1,8 +1,9 @@
 # Function Constructor Pattern - 1
+## How to create an instance?
  
-- `new` keyword
-- instance
-- inheritance
+1. Function constructor
+2. `new` keyword
+
 - The mimic concept of `class` in other language ==  **function constructor** 
 - all objects in javascript have a **prototype property**.
 - When we need to create multiple instances, a class concept is very useful.
