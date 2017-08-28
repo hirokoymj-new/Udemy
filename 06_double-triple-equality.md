@@ -13,13 +13,13 @@ false == 'false' // false (boolean == string)
 ## Triple Equality
 
 **The result is only TRUE if it compares exact same value.**
-![Triple Equality](http://www.hirokoymj.com/images/EqualityTable_triple.png)
+![Triple Equality](http://www.hirokoymj.com/images/Equality_triple.png)
 
 
 ## Double Equality
 
 **The result is only TRUE if it compares exact same value.**
-![Triple Equality](http://www.hirokoymj.com/images/EqualityTable_double.png)
+![Triple Equality](http://www.hirokoymj.com/images/Equality_double.png)
 
 
 ## References:
