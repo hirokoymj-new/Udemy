@@ -152,3 +152,33 @@ console.log(asim.full_name());
 console.log(asim.professional_name());
 ```
 
+
+**Using Factory method (not sure it is correct...)**
+
+```js
+var Person = {
+	full_name: function(){
+		return this.first_name + " " + this.last_name; 
+	}
+};
+
+
+function ProfessionalFactory(honorific, first_name, last_name){
+	var human = Object.create(Person);
+	
+	human.first_name = first_name;
+	human.last_name = last_name;
+	human.honorific = honorific;
+	human.professional_name = function(){
+		return honorific + " " + first_name + " " + last_name; 
+	}
+	return human;
+}
+
+
+var asim = ProfessionalFactory("mr.", "asim", "hussain");
+
+console.log(asim.full_name()); //asim hussain
+console.log(asim.professional_name()); // mr. asim hussain
+```
+
