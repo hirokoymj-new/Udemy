@@ -1,4 +1,4 @@
-# Questions - Array
+# Question 1 - Array
 
 
 **1. Remove "mandarin" in myFish array.**
@@ -29,16 +29,14 @@ var employees = [
 
 // Result
 /*
-[
-  { skill: 'css', user: [ 'Sue', 'Bill' ], count: 2 },
+[ { skill: 'css', user: [ 'Sue', 'Bill' ], count: 2 },
   { skill: 'javascript', user: [ 'Chad', 'Bill', 'Sue' ], count: 3 },
-  { skill: 'html', user: [ 'Sue' ], count: 1 } 
-];
+  { skill: 'html', user: [ 'Sue' ], count: 1 } ];
 */
 ```
 
 
-**4. Check if the city "New York" exists. If exists, print city name, if not, print "the city can't find".**
+**4. Check if the city "New York" exists.".**
 
 ```js
 var cityArray = [
@@ -60,6 +58,3 @@ var myArray = [
 ];
 // Create new array [ 'red', 'blue', 'green', 'yellow' ]
 ```
-
-# Answer
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter

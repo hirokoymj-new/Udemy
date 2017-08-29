@@ -1,38 +1,42 @@
-// 1.
-// Array.splice(start, deleteCount)
-//
+# Question 1 Answer
+
+**1. Remove "mandarin" in myFish array.**
+```js
 var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
 var removeItem = myFish.splice(myFish.indexOf("mandarin"), 1);
 console.log(myFish);
+```
 
-// 2
-// Array.reduce(accumulator, currentValue, currentIndex)
-// {} - Object - Object.name , Object[name]
-// [] -
-// arr.reduce(callback[, initialValue])
-//
+**2. Reformat array.**
+
+- Use array.reduce()
+```js
 var kvArray = [{key: 1, value: 10},
     {key: 2, value: 20},
     {key: 3, value: 30}];
+```
 
+```js
 var newArray = kvArray.reduce(function(acc, currentValue){
     var tmp = {};
     tmp[currentValue.key] = currentValue.value;
     var len = acc.push(tmp);
     return acc;
 }, []);
+```
 
-console.log(newArray);
-
+- Use array.map()
+```js
 var newArray2 = kvArray.map(function(currentValue, index, array ){
     var tmp = {};
     tmp[currentValue.key] = currentValue.value;
     return tmp;
 });
+```
 
-console.log(newArray2);
 
-// 3
+**3. Reform array.**
+```js
 var employees = [
     { skill: 'css', user: 'Bill' },
     { skill: 'javascript', user: 'Chad' },
@@ -41,19 +45,9 @@ var employees = [
     { skill: 'javascript', user: 'Sue' },
     { skill: 'html', user: 'Sue' }
 ];
+```
 
-// /!*[
-//     { skill: 'css', user: [ 'Sue', 'Bill' ], count: 2 },
-//     { skill: 'javascript', user: [ 'Chad', 'Bill', 'Sue' ], count: 3 },
-//     { skill: 'html', user: [ 'Sue' ], count: 1 }
-// ];*!/
-
-// var existingIndex = employees.map(function(element, index){
-//     return element.skill;
-// }).indexOf('Node');
-//
-// console.log(existingIndex);
-//
+```js
 var newArray = employees.reduce(function(acc, currentValue){
     var skill = currentValue.skill;
 
@@ -77,23 +71,21 @@ var newArray = employees.reduce(function(acc, currentValue){
     }
     return acc;
 }, []);
-
-console.log(newArray);*/
-
+```
 
 
-
-
-// 4
+**4. Check if the city "New York" exists**
+```js
 var cityArray = [
-    {id: 2, city: "Los Angeles" },
-    {id: 1, city: "New York"},
-    {id: 3, city: "Washington DC" },
-    {id: 4, city: "San Jose" },
-    {id: 5, city: "Mountain View" }
+{id: 1, city: "New York"},
+{id: 2, city: "Los Angeles" },
+{id: 3, city: "Washington DC" },
+{id: 4, city: "San Jose" },
+{id: 5, city: "Mountain View" }
 ];
+```
 
-
+```js
 function checkExisting(array, city){
     var existingIndex = array.map(function(element, index){
         return element.city;
@@ -106,16 +98,24 @@ function checkExisting(array, city){
     }
 }
 checkExisting(cityArray, "New York");
+```
 
-// 5
+**5. Create new array** 
+```js
 var myArray = [
     {'color':'red', 'name': 'redName'},
     {'color':'blue', 'name': 'blueName'},
     {'color':'green', 'name': 'greenName'},
     {'color':'yellow', 'name': 'yellowName'}
 ];
+```
 
+```js
 var newArray = myArray.map(function(currentValue, index){
     return currentValue.color;
 });
-console.log(newArray);
+```
+
+## References:
+
+- [Array.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
