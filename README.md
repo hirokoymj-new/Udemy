@@ -1,4 +1,4 @@
-# Udemy Advanced JavaScript
+# Udemy - Advanced JavaScript
 
 
 - [use strict](https://github.com/hirokoymj/Udemy/blob/master/03_use_strict.md)
