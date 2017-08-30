@@ -55,3 +55,9 @@ console.log("Y of rec is " + rec.y); // Y of rec is 10
 
 ## References
  - [Classical inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+
+## Syntax
+```js
+Object.create(proto[, propertiesObject])
+
+```
