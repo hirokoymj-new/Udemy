@@ -87,7 +87,67 @@ var o = {
 console.log(o.f()); // 
 ```
 
+**Question 6**
+```js
+var myObject = {
+      egg: "plant”,
+      func: function() {
+            var self = this;   
+            console.log("outer func: this.egg = " + this.egg);
+            console.log("outer func: self.egg = " + self.egg);
+           (function() {
+            console.log("inner func: this.egg = " + this.egg);
+            console.log("inner func: self.egg = " + self.egg);
+            }());
+       }
+};
+myObject.func();
+```
+
+
+**Question 7**
+```js
+var fullname = 'John Doe';
+var obj = {
+   fullname: 'Colin Ihrig',
+   prop: {
+      fullname: 'Aurelio De Rosa',
+      getFullname: function() {
+         return this.fullname;
+      }
+   }
+};
+
+console.log(obj.prop.getFullname());// Aurelio De Rosa
+var test = obj.prop.getFullname; 
+console.log(test()); //John Doe
+```
+
+**Question 8**
+```js
+"use strict";
+var fullname = 'John Doe';
+var obj = {
+   fullname: 'Colin Ihrig',
+   prop: {
+      fullname: 'Aurelio De Rosa',
+      getFullname: function() {
+         return this.fullname;
+      }
+   }
+};
+
+console.log(obj.prop.getFullname());// Aurelio De Rosa
+var test = obj.prop.getFullname; 
+console.log(test()); //undefined
+```
+
+
+
+
+
 
 ## References
 - [MDN - this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [MDN - bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+- [Up-work](https://www.upwork.com/i/interview-questions/javascript/)

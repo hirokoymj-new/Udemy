@@ -45,11 +45,8 @@ var addressbook = (function(){
 })();
 ```
 
-## User event
-- [jQuery Events](https://api.jquery.com/category/events/form-events/)
-- [Events](https://api.jquery.com/category/events/)
+## Submit
 
-**Submit event in a form**
 ```js
 $("#form").submit(function(event){
     event.preventDefault();
@@ -58,11 +55,13 @@ $("#form").submit(function(event){
 });
 ```
 
-**Change event for select box**
+## Selectbox
+- Get a selected value.
 ```js
-$('#category').on('change', function(){
-    var id = $(this).val();
-});
+$("#garden").on('change', function(){
+    var selected = $(this).val();
+    $('#myText').val(selected);
+})
 ```
 
 ## HTML
@@ -75,3 +74,7 @@ $('#category').on('change', function(){
     });
 </script>
 ```
+
+# References:
+- [jQuery Events](https://api.jquery.com/category/events/form-events/)
+- [Events](https://api.jquery.com/category/events/)
