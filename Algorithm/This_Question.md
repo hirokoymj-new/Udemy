@@ -90,7 +90,7 @@ console.log(o.f()); //
 **Question 6**
 ```js
 var myObject = {
-      egg: "plant”,
+      egg: "plant",
       func: function() {
             var self = this;   
             console.log("outer func: this.egg = " + this.egg);
