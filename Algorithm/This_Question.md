@@ -105,6 +105,8 @@ myObject.func();
 ```
 
 
+
+
 **Question 7**
 ```js
 var fullname = 'John Doe';
@@ -118,9 +120,9 @@ var obj = {
    }
 };
 
-console.log(obj.prop.getFullname());// Aurelio De Rosa
+console.log(obj.prop.getFullname());
 var test = obj.prop.getFullname; 
-console.log(test()); //John Doe
+console.log(test());
 ```
 
 **Question 8**
@@ -137,12 +139,35 @@ var obj = {
    }
 };
 
+console.log(obj.prop.getFullname());
+var test = obj.prop.getFullname; 
+console.log(test());
+```
+
+## Answer
+**Q6**
+```js
+outer func: this.egg = plant
+call.js:6 outer func: self.egg = plant
+call.js:8 inner func: this.egg = undefined
+call.js:9 inner func: self.egg = plant
+```
+
+**Q7**
+
+```js
+console.log(obj.prop.getFullname());// Aurelio De Rosa
+var test = obj.prop.getFullname; 
+console.log(test()); //John Doe
+```
+
+
+**Q8**
+```js
 console.log(obj.prop.getFullname());// Aurelio De Rosa
 var test = obj.prop.getFullname; 
 console.log(test()); //undefined
 ```
-
-
 
 
 
