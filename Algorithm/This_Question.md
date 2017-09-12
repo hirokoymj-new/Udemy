@@ -148,9 +148,9 @@ console.log(test());
 **Q6**
 ```js
 outer func: this.egg = plant
-call.js:6 outer func: self.egg = plant
-call.js:8 inner func: this.egg = undefined
-call.js:9 inner func: self.egg = plant
+outer func: self.egg = plant
+inner func: this.egg = undefined
+inner func: self.egg = plant
 ```
 
 **Q7**
