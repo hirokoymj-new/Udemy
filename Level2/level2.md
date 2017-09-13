@@ -9,7 +9,7 @@ How would you empty the array below?
 var a = [1,2,3,4,5];
 ```
 
-**Answer 1**
+**Answer**
 ```js
 a.length = 0;
 //or 
@@ -35,7 +35,7 @@ var boundGetX = retrieveX.bind(module);
 boundGetX();                    // What is output?
 ```
 
-**Answer 2**
+**Answer**
 
 ```js
 module.getX();                  // 81
@@ -66,7 +66,7 @@ console.log(stoleSecretIdentity());
 console.log(hero.getSecretIdentity());
 ```
 
-**Answer 3-1**
+**Answer 1**
 ```js
 var stoleSecretIdentity = hero.getSecretIdentity;
 console.log(stoleSecretIdentity()); // undefined
@@ -74,7 +74,7 @@ console.log(hero.getSecretIdentity()); //John Doe
 ```
 
 
-**Answer 3-2** 
+**Answer 2** 
 
 Fixed version - using bind method, hero object is passed to getSecretIdentity explicitly.
 ```js
