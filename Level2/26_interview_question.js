@@ -1,157 +1,68 @@
-// https://www.toptal.com/javascript/interview-questions
+// for (var i = 0; i < 5; i++) {
+//     (function(){
+//         var y = i;
+//         setTimeout(function() { console.log(y); }, y * 1000 );
+//     })();
 //
-// Question 1
-//
-// var bar = {};
-//
-// //console.log(bar===null);
-//
-//
-// if(typeof bar === "object" && bar !== null){
-//     console.log('bar is object');
 // }
 
-
 //
-// Question 2
+// Scope
 //
-// (function(){
-//     //var a = b = 3;
-//     b = 3;
-//     var a = b;
+// var text = 'outside';
+// function logIt(){
+//     console.log(text);
+//     var text = 'inside';
+// };
+// logIt();
 //
 //
-// })();
+// /// Hoisting
+function test() {
+    console.log(a);
+    console.log(foo());
+
+    var a = 1;
+    function foo() {
+        return 2;
+    }
+}
+test();
 //
-// console.log("a defined? " + (typeof a !== 'undefined'));
-// console.log("b defined? " + (typeof b !== 'undefined'));
-
-
-
-// function test(){
-//     a="Hiroko";
-// }
 //
-// console.log(a);
-
-
-// Consider the two functions below. Will they both return the same thing? Why or why not?
-// function foo1()
-// {
-//     return {
-//         bar: "hello"
-//     };
-// }
+// ///
 //
-// function foo2()
-// {
-//     return
-//     {
-//         bar: "hello"
-//     };
-// }
-//
-// console.log(foo1()); //type
-// console.log(foo2()); //type
-
-
-// function isInteger(x){
-//     if(x%1 == 0){
-//         console.log("x is interger");
-//     }else{
-//         console.log("x is not interger");
+// function test() {
+//     var a;
+//     function foo() {
+//         return 2;
 //     }
+//
+//     console.log(a);
+//     console.log(foo());
+//
+//     a = 1;
 // }
 //
-// isInteger(2);
-
-// Remove space from a string.
-
-// var str = "A but tuba";
-// //var str = "Is this all there is?";
-// var patt1 = /\s/g;
-//
-// var new_string = str.replace(patt1, "");
-// new_string = new_string.toLowerCase();
-// var array  = new_string.split("");
-// console.log(new_string);
-// console.log(array);
-// var reverse_string = array.reverse().join("");
-// console.log(reverse_string);
-//
-// if(reverse_string == new_string){
-//     console.log("this is parindorome");
-// }
+// test();
 
 
+//https://www.sitepoint.com/5-typical-javascript-interview-exercises/
+// Fix the previous question’s issue so that the last console.log() prints Aurelio De Rosa.
 
-
-// var re = /(\w+)\s(\w+)/;
-// var str = 'John Smith';
-// var newstr = str.replace(re, '$2, $1');
-// console.log(newstr);
-
-
-
-// "use strict";
-//
-// var asim = {
-//     checkThis: function(){
-//         var self = this;
-//
-//         function checkOther(){
-//             console.log(self);
-//             self.moo = 1;
-//         }
-//         checkOther();
-//         console.log(self.moo);
-//         //console.log(window.moo);
-//     }
-// }
-// asim.checkThis();
-
-
-// var myObject = {
-//     egg: "plant",
-//     func: function() {
-//         var self = this;
-//         console.log("outer func: this.egg = " + this.egg);
-//         console.log("outer func: self.egg = " + self.egg);
-//         function test() {
-//             console.log("inner func: this.egg = " + this.egg);
-//             console.log("inner func: self.egg = " + self.egg);
-//         };
-//         test.call(self);
-//     }
-// }
-// var func = myObject.func.bind(myObject);
-// func();
-
-
-var hero = {
-    _name: 'John Doe',
-    getSecretIdentity: function (){
-        return this._name;
+var fullname = 'John Doe';
+var obj = {
+    fullname: 'Colin Ihrig',
+    prop: {
+        fullname: 'Aurelio De Rosa',
+        getFullname: function() {
+            return this.fullname;
+        }
     }
 };
 
-var stoleSecretIdentity = hero.getSecretIdentity;
+console.log(obj.prop.getFullname());
 
-console.log(stoleSecretIdentity());
-console.log(hero.getSecretIdentity());
+var test = obj.prop.getFullname;
 
-
-
-// this.x = 9;    // this refers to global "window" object here in the browser
-// var module = {
-//     x: 81,
-//     getX: function() { return this.x; }
-// };
-//
-// module.getX(); // 81
-//
-// var retrieveX = module.getX;
-// retrieveX();
-//
-// var boundGetX = retrieveX.bind(module);
-// boundGetX(); // 81
+console.log(test());
