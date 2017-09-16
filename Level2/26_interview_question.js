@@ -1,68 +1,25 @@
-// for (var i = 0; i < 5; i++) {
-//     (function(){
-//         var y = i;
-//         setTimeout(function() { console.log(y); }, y * 1000 );
-//     })();
-//
-// }
 
-//
-// Scope
-//
-// var text = 'outside';
-// function logIt(){
-//     console.log(text);
-//     var text = 'inside';
+// function test(){
+//     var a = 2;
+//     var b=3;
 // };
-// logIt();
-//
-//
-// /// Hoisting
-function test() {
-    console.log(a);
-    console.log(foo());
-
-    var a = 1;
-    function foo() {
-        return 2;
-    }
-}
-test();
-//
-//
-// ///
-//
-// function test() {
-//     var a;
-//     function foo() {
-//         return 2;
-//     }
-//
-//     console.log(a);
-//     console.log(foo());
-//
-//     a = 1;
-// }
-//
 // test();
+//
+// //console.log(a);
+// console.log(b);
 
 
-//https://www.sitepoint.com/5-typical-javascript-interview-exercises/
-// Fix the previous question’s issue so that the last console.log() prints Aurelio De Rosa.
 
-var fullname = 'John Doe';
-var obj = {
-    fullname: 'Colin Ihrig',
-    prop: {
-        fullname: 'Aurelio De Rosa',
-        getFullname: function() {
-            return this.fullname;
-        }
-    }
-};
+(function(){
+    var a = b = 3;
+})();
 
-console.log(obj.prop.getFullname());
+console.log("a defined? " + (typeof a !== 'undefined'));
+console.log("b defined? " + (typeof b !== 'undefined'));
 
-var test = obj.prop.getFullname;
 
-console.log(test());
+
+
+console.log("a defined? " + (typeof a !== 'undefined')); // a is a local variable of the function.  // false
+console.log("b defined? " + (typeof b !== 'undefined')); // b is a global variable  // true
+

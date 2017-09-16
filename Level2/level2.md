@@ -188,9 +188,52 @@ var test = obj.prop.getFullname;
 console.log(test.call(obj.prop));               //Aurelio De Rosa
 ```
 
+## Question 8
+```js
+(function() {
+   var a = b = 5;
+})();
 
+console.log(b);
+```
+
+**Answer**
+- a is declared with var keyword. It means a is a local variable of the function.
+- b is a global variable.
+- if strict mode was enabled, `b=5` raise the error Uncaught ReferenceError: b is not defined.
+
+
+```js
+(function() {
+    //var a = b = 5;
+    var a = "b";        // local variable
+    b = 5;              // global variable
+})();
+
+console.log(b);         // 5
+```
+
+
+
+## Question 9
+
+```js
+(function(){
+    var a = b = 3;
+})();
+
+console.log("a defined? " + (typeof a !== 'undefined'));
+console.log("b defined? " + (typeof b !== 'undefined')); 
+```
+
+## Answer
+```js
+console.log("a defined? " + (typeof a !== 'undefined')); // a is a local variable of the function.  // false
+console.log("b defined? " + (typeof b !== 'undefined')); // b is a global variable  // true
+```
 
 ## References:
 - (9/11) https://www.upwork.com/i/interview-questions/javascript/
 - (9/12) https://www.toptal.com/javascript/interview-questions
 - (9/13) https://www.sitepoint.com/5-typical-javascript-interview-exercises/
+- (9/15) https://www.sitepoint.com/5-typical-javascript-interview-exercises/
