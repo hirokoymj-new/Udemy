@@ -232,6 +232,49 @@ console.log("a defined? " + (typeof a !== 'undefined')); // a is a local variabl
 console.log("b defined? " + (typeof b !== 'undefined')); // b is a global variable  // true
 ```
 
+
+## Question 10
+- Define a repeatify function on the String object
+
+```js
+console.log('hello'.repeatify(3));
+```
+
+
+## Answer
+```js
+String.prototype.repeatify = function(count){
+    var str = [];
+    for(var i=0;i< count; i++){
+        str.push(this);
+    }
+    var result = str.join("");
+    return result;
+}
+```
+## Question 11
+Create array
+```js
+var array = [1,2,3];
+var array = new Array(1, 2, 3);
+```
+In JavaScript, arrays use numbered indexes.  
+In JavaScript, objects use named indexes.
+
+
+## Question 12 
+- Copy of array
+
+```js
+var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
+```
+
+## Answer
+```js
+var vegeCopy = vegetables.slice();
+```
+
+
 ## References:
 - (9/11) https://www.upwork.com/i/interview-questions/javascript/
 - (9/12) https://www.toptal.com/javascript/interview-questions
