@@ -15,7 +15,7 @@ console.log('hiroko'.repeatify(3));
 
 
 var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
-var vegeCopy = vegetables.slice();
+var vegeCopy = vegetables.slice(); //[ 'Cabbage', 'Turnip', 'Radish', 'Carrot' ]
 console.log(vegeCopy);
 
 

@@ -271,7 +271,7 @@ var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
 
 ## Answer
 ```js
-var vegeCopy = vegetables.slice();
+var vegeCopy = vegetables.slice(); // //[ 'Cabbage', 'Turnip', 'Radish', 'Carrot' ]
 ```
 
 
