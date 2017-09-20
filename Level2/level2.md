@@ -274,6 +274,110 @@ var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
 var vegeCopy = vegetables.slice(); //[ 'Cabbage', 'Turnip', 'Radish', 'Carrot' ]
 ```
 
+## Question 13
+ 
+Sum all the values of an array
+
+```js
+var array = [3,5,2];
+```
+
+## Answer
+
+```js
+var sum = array.reduce(function(acc, currentValue, index){
+    return acc + currentValue;
+}, 0);
+
+console.log(sum); //10
+```
+
+## Question 14
+Check if object key exists within array
+
+```js
+var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+```
+
+
+## Answer-1
+- Use [IN operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in)
+
+```js
+if('make' in mycar){
+    console.log("make key exists in mycar object");
+}
+```
+
+## Answer-2
+- Use [Object.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
+```js
+mycar.hasOwnProperty('year'); //true
+```
+
+## Question 15
+Counting instances of values in an object
+
+```js
+var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+//{'Alice':2, 'Bob':1, 'Tiff':1, 'Bruce':1}
+```
+
+## Answer
+```js
+var newObj = names.reduce(function(acc, currentValue, index){
+
+    var existing = acc.hasOwnProperty(currentValue);
+
+    // var existing
+    if(existing){
+        acc[currentValue]++;
+    }else{
+        acc[currentValue] = 1;
+    }
+    return acc;
+}, {});
+
+console.log(newObj);
+```
+
+
+## Question 16
+Flatten array by same key.
+
+```js
+var array = [
+    {name:"foo1",value:"val1"},
+    {name:"foo1",value:["val2","val3"]},
+    {name:"foo2",value:"val4"}
+];
+//[ { name: 'foo1', value: [ 'val1', 'val2', 'val3' ] },  { name: 'foo2', value: [ 'val4' ] } ]
+```
+
+## Answer
+```js
+var newarray = array.reduce(function(acc, currentValue){
+    var existing = acc.map(function(value, index){
+        return value.name
+    }).indexOf(currentValue.name);
+
+    if(existing == -1){
+        var tmp = {};
+        tmp['name'] = currentValue.name;
+        tmp['value'] = [currentValue.value];
+        acc.push(tmp);
+    }else{
+        if(typeof currentValue.value == 'object'){
+            acc[existing].value = acc[existing].value.concat(currentValue.value)
+        }else{
+            acc[existing].value.push(currentValue.value);
+        }
+    }
+    return acc;
+
+}, []);
+```
+
 
 ## References:
 - (9/11) https://www.upwork.com/i/interview-questions/javascript/
