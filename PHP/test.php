@@ -7,8 +7,12 @@
  */
 
 
-$input = array("red", "green", "blue", "yellow");
-array_splice($input, 1, 1);
-print_r($input);
+//$data = array("red", "green", "blue");
+//array_push($data, "yellow");
+
+$data = array("red", "green", "blue");
+array_splice($data, 1, 1);
+
+print_r($data);
 
 ?>
