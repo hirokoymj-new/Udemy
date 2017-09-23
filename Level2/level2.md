@@ -378,9 +378,32 @@ var newarray = array.reduce(function(acc, currentValue){
 }, []);
 ```
 
+## Question 17
+- check Array
+```js
+console.log(typeof []); 
+console.log(typeof {});
+```
+
+## Answer
+- Use `Array.isArray()` method to check if Array or not because typeof [] returns "object" not Array.
+
+```js
+console.log(typeof []); // object
+console.log(typeof {}); // object
+
+console.log(Array.isArray([]));
+console.log(Array.isArray({}));
+```
+
+## Question 18
+
+
+
 
 ## References:
 - (9/11) https://www.upwork.com/i/interview-questions/javascript/
 - (9/12) https://www.toptal.com/javascript/interview-questions
 - (9/13) https://www.sitepoint.com/5-typical-javascript-interview-exercises/
 - (9/15) https://www.sitepoint.com/5-typical-javascript-interview-exercises/
+- (9/22) https://www.thatjsdude.com/index.html
