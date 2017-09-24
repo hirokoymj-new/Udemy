@@ -397,6 +397,53 @@ console.log(Array.isArray({}));
 ```
 
 ## Question 18
+**Check prime**
+- divisor
+- dividend
+
+```js
+function isPrime(num){
+    var divisor = 2;
+
+    while(divisor<num){
+        if(num%divisor==0 ){
+            return false;
+        }
+       divisor++;
+    }
+    return true;
+}
+
+```
+
+```js
+console.log(isPrime(137)); //true
+console.log(isPrime(237)); //false
+```
+
+## Question 19
+**Find prime factors**
+
+```js
+function findPrimeFactor(num){
+    var divisor = 2;
+    var result = [];
+
+    while(divisor<num){
+        console.log(divisor);
+        if(num%divisor==0 ){
+            result.push(divisor);
+        }
+        divisor++;
+    }
+    return result;
+}
+
+result = findPrimeFactor(4);
+console.log(result);
+
+```
+
 
 
 

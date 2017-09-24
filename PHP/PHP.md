@@ -139,6 +139,14 @@ array_splice($data, 1, 1);
 array("red", "blue")
 ```
 
+## 5. Superglobals
+
+```php
+$_GET['id']
+$_POST['id']
+$_REQUEST['id']
+```
+
 ### References
 - http://php.net/manual/en/function.array-search.php
 - http://php.net/manual/en/function.array-column.php
