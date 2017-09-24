@@ -1,6 +1,42 @@
-# Form
+# Form 
 
-## JavaScript Module
+## Method 1 (without Ajax)
+- JavaScript module
+- jQuery  
+- Handlebars.js
+
+**1. Submit Form**
+
+```js
+$('#form').submit(function(event){
+    event.preventDefault();    
+});
+```
+
+**2. Get form data**
+```js
+$('#form').serializeArray();
+//[{name: firstname, value: Hiroko}, {name: lastname, value: Yamaji}]
+```
+**3. Convert formArray to JSON**
+
+```js
+var formJson = formArray.reduce(function(acc, value, index){
+    acc[value.name] = value.value;
+    return acc;
+}, {});
+//
+```
+**4. Display form array with Handlebars**
+```js
+var source = $("#addressbook-template").html();
+var template = Handlebars.compile(source);
+var html = template(data);
+$("#addressList").html(html);
+```
+
+
+# Method 1 - Ajax
 
 - Module - Creating public and private area. Also a module name is namespace.
 - return {} object
@@ -78,3 +114,4 @@ $("#garden").on('change', function(){
 # References:
 - [jQuery Events](https://api.jquery.com/category/events/form-events/)
 - [Events](https://api.jquery.com/category/events/)
+- [Handlebars](http://handlebarsjs.com/)

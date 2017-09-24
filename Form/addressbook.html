@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Addressbook Form</title>
+</head>
+<body>
+
+<form id="addressForm">
+    First name: <input type="text" name="firstname" /><br>
+    Last name: <input type="text" name="lastname" /><br>
+    <input type="submit" value="submit">
+</form>
+<hr>
+
+<div id="addressList"></div>
+
+<script id="addressbook-template" type="text/x-handlebars-template">
+    <table border="1">
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    {{#each addressbook}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{firstname}}</td>
+        <td>{{lastname}}</td>
+    </tr>
+    {{/each}}
+    </table>
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="addressbook.js"></script>
+<script>
+    $(document).ready(function(){
+        addressbook.init();
+    });
+
+</script>
+</body>
+</html>
