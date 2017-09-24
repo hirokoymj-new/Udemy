@@ -441,9 +441,27 @@ function findPrimeFactor(num){
 
 result = findPrimeFactor(4);
 console.log(result);
-
 ```
 
+## Question 20
+**Convert $('#form').serializeArray() to JSON**
+
+```js
+var formArray = [
+    {name: "firstname", value: "Hiroko"},
+    {name: "lastname", value: "Yamaji"}
+];
+// {firstname: Hiroko, lastname: Yamaji}
+```
+
+## Answer
+```js
+var output = formArray.reduce(function(acc, currentValue, index){
+    acc[currentValue.name] = currentValue.value;
+    return acc;
+},{});
+console.log(output); //{ firstname: 'Hiroko', lastname: 'Yamaji' }
+```
 
 
 

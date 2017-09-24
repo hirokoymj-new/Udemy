@@ -38,8 +38,9 @@ var addressbook = (function(){
             // Submit form
             $("#addressForm").submit(function(event){
                 event.preventDefault();
-                var formData = $(this).serializeArray(); //[{name: firstname, value: Hiroko}, {name: lastname, value: Yamaji}]
-                saveAddress(formData);
+                var formArray = $(this).serializeArray(); //[{name: firstname, value: Hiroko}, {name: lastname, value: Yamaji}]
+                console.log(formArray);
+                //saveAddress(formData);
             });
         }
     }//
