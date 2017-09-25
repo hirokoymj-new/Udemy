@@ -24,16 +24,17 @@
     </tr>
     {{#each addressbook}}
     <tr>
-        <td>{{id}}</td>
+        <td>{{@index}}</td>
         <td>{{firstname}}</td>
         <td>{{lastname}}</td>
+        <td><a href="#" class="delete" data-id="{{@index}}">delete</a></td>
     </tr>
     {{/each}}
     </table>
 </script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../../bower_components/handlebars/handlebars.js"></script>
 <script src="addressbook.js"></script>
 <script>
     $(document).ready(function(){

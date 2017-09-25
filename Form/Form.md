@@ -4,6 +4,7 @@
 - JavaScript module
 - jQuery  
 - Handlebars.js
+- Code: 
 
 **1. Submit Form**
 
@@ -36,7 +37,7 @@ $("#addressList").html(html);
 ```
 
 
-# Method 1 - Ajax
+# Method 2 - jQuery Ajax+PHP
 
 - Module - Creating public and private area. Also a module name is namespace.
 - return {} object
