@@ -4,7 +4,7 @@
 - JavaScript module
 - jQuery  
 - Handlebars.js
-- Code: [addressbook.js](https://github.com/hirokoymj/Udemy/blob/master/Form/method1/addressbook.js)
+- Code: [addressbook.js](https://github.com/hirokoymj/Udemy/blob/master/Form/basic/addressbook.js)
 
 **1. Submit Form**
 
