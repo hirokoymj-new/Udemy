@@ -58,47 +58,42 @@ var html = template(data);
 $("#addressList").html(html);
 ```
 
-## Form 
-**Selector**
+## Form selector/event
+
+## Selector
 ```js
 $(id), $(class), $('[name=hobby]')
 ```
 
-**Submit**
+##Submit
 ```js
 $('#form').serializeArray()
 ```
 
-**Get a selected value(s)**
+## Get a selected value(s)
 - `:checked`
 - `option:selected`
 
-**[Selectbox]**
+**selectbox**
 
 ```js
 var selectedOne = $('#selectbox').val()
 var multiple = $("#selectbox").val()
 ```
 
-**[Radio button]**
+**radio button**
 ```js
 $("#radio").val();
 ```
 
-**[Checkbox]**
+**checkbox**
 ```js
 $("#checkbox:checked").each()
 ```
 
+##Is selected?
 
-
-
-
-
-
-**Is selected?**
-
-**- Checkbox**
+**checkbox**
 ```html
 <input type="checkbox" name="hobby" value="yoga" id="hobby_yoga" >
 <input type="checkbox" name="hobby" value="golf" id="hobby_golf">
@@ -109,7 +104,7 @@ $("#checkbox:checked").each()
 $('#hobby_golf').is(":checked")
 ```
 
-**- Radio button**
+**radio button**
 
 ```html
 <input type="radio" name="commute" value="car" id="commute_car" >
@@ -121,7 +116,7 @@ $('#hobby_golf').is(":checked")
 $("#commute_car").is(":checked")
 ```
 
-**- Selectbox**
+**selectbox**
 
 ```html
 <select name="skills" id="skills">
@@ -140,7 +135,8 @@ if(selected == "css"){
 
 
 
-**Events**
+##Events
+
 ```text
 selectbox- change()
 checkbox - click
