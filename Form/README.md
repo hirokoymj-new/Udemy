@@ -91,7 +91,7 @@ $("#radio").val();
 $("#checkbox:checked").each()
 ```
 
-##Is selected?
+## Is selected?
 
 **checkbox**
 ```html
