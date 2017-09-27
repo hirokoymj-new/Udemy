@@ -9,6 +9,15 @@
 <form id="addressForm">
     First name: <input type="text" name="firstname" /><br>
     Last name: <input type="text" name="lastname" /><br>
+
+    Department:
+    <select name="department">
+        <option value="HR">HR</option>
+        <option value="IT">IT</option>
+        <option value="Accounting">Accounting</option>
+    </select>
+
+
     <input type="submit" value="submit">
 </form>
 <hr>
@@ -21,12 +30,14 @@
         <td>ID</td>
         <td>First Name</td>
         <td>Last Name</td>
+        <td>Department</td>
     </tr>
     {{#each addressbook}}
     <tr>
         <td>{{@index}}</td>
         <td>{{firstname}}</td>
         <td>{{lastname}}</td>
+        <td>{{department}}</td>
         <td><a href="#" class="delete" data-id="{{@index}}">delete</a></td>
     </tr>
     {{/each}}

@@ -1,6 +1,6 @@
 # Form 
 
-## Method 1 (without Ajax)
+## Basic 1 
 - JavaScript module
 - jQuery  
 - Handlebars.js
@@ -17,15 +17,37 @@ $('#form').submit(function(event){
 **2. Get form data**
 ```js
 $('#form').serializeArray();
-//[{name: firstname, value: Hiroko}, {name: lastname, value: Yamaji}]
 ```
+
+
+```js
+[
+    {name: "firstname", value: "hiroko"},
+    {name: "lastname", value: "yamaji"},
+    {name: "department", value: "IT"},
+    {name: "hobby", value: "yoga"},
+    {name: "hobby", value: "Golf"},
+    {name: "hobby", value: "Tennis"}
+]
+```
+
+
+
 **3. Convert formArray to JSON**
 
 ```js
 var formJson = formArray.reduce(function(acc, value, index){
-    acc[value.name] = value.value;
+    var existing = acc.hasOwnProperty(value.name);
+    if(existing){
+        acc[value.name] = [ acc[value.name] ]; //convert string to array
+        acc[value.name].push(value.value);
+    }else{
+        acc[value.name] = value.value;
+    }
     return acc;
 }, {});
+//
+//{firstname: "hiroko", lastname: "yamaji", department: "HR", hobby: ["yoga", "golf"]}
 //
 ```
 **4. Display form array with Handlebars**
@@ -35,6 +57,105 @@ var template = Handlebars.compile(source);
 var html = template(data);
 $("#addressList").html(html);
 ```
+
+## Form 
+**Selector**
+```js
+$(id), $(class), $('[name=hobby]')
+```
+
+**Submit**
+```js
+$('#form').serializeArray()
+```
+
+**Get a selected value(s)**
+- `:checked`
+- `option:selected`
+
+**[Selectbox]**
+
+```js
+var selectedOne = $('#selectbox').val()
+var multiple = $("#selectbox").val()
+```
+
+**[Radio button]**
+```js
+$("#radio").val();
+```
+
+**[Checkbox]**
+```js
+$("#checkbox:checked").each()
+```
+
+
+
+
+
+
+
+**Is selected?**
+
+**- Checkbox**
+```html
+<input type="checkbox" name="hobby" value="yoga" id="hobby_yoga" >
+<input type="checkbox" name="hobby" value="golf" id="hobby_golf">
+<input type="checkbox" name="hobby" value="tennis" id="hobby_tennis">
+```
+
+```js
+$('#hobby_golf').is(":checked")
+```
+
+**- Radio button**
+
+```html
+<input type="radio" name="commute" value="car" id="commute_car" >
+<input type="radio" name="commute" value="train" id="commute_train">
+<input type="radio" name="commute" value="bus" id="commute_bus">
+```
+
+```js
+$("#commute_car").is(":checked")
+```
+
+**- Selectbox**
+
+```html
+<select name="skills" id="skills">
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
+```
+
+```js
+var selected = $("#skill").val();
+if(selected == "css"){
+    console.log("css is selected");
+}
+```
+
+
+
+**Events**
+```text
+selectbox- change()
+checkbox - click
+radio - click
+```
+```js
+$('#selectbox').change(function(){})
+$('#checkbox').on('click', function(){})
+$("#radio").on('click', function(){})
+
+```
+
+
+
+
 
 
 # Method 2 - jQuery Ajax+PHP
@@ -54,63 +175,21 @@ $.ajax({})
 ```
 
 ```js
-var addressbook = (function(){
-    // private
-    function addData(formdata){
-        $.ajax({ //tudd
-            type: "POST",
-            url: "",
-            data: formdata,
-            dataType: 'json',
-            success: function(){},
-            error: function(){}
-        });
-    }
-
-    // public methods
-    return {
-        init: function(){
-            // Submit form
-            $("#form").submit(function(event){
-                event.preventDefault();
-                var formdata = $(this).serialize();
-                addData(formdata);
-            });
-        }
-    }//
-
-})();
-```
-
-## Submit
-
-```js
-$("#form").submit(function(event){
-    event.preventDefault();
-    var formdata = $(this).serialize();
-    addData(formdata);
-});
-```
-
-## Selectbox
-- Get a selected value.
-```js
-$("#garden").on('change', function(){
-    var selected = $(this).val();
-    $('#myText').val(selected);
-})
-```
-
-## HTML
-```html
-<script src="jquery.min.js"></script>
-<script src="addressbook.js"></script>
-<script>
-    $(document).ready(function () {
-        addressbook.init();
+function addData(formdata){
+    $.ajax({ //tudd
+        type: "POST",
+        url: "",
+        data: formdata,
+        dataType: 'json',
+        success: function(){},
+        error: function(){}
     });
-</script>
+}
 ```
+
+
+
+
 
 # References:
 - [jQuery Events](https://api.jquery.com/category/events/form-events/)
