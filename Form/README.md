@@ -65,7 +65,7 @@ $("#addressList").html(html);
 $(id), $(class), $('[name=hobby]')
 ```
 
-##Submit
+## Submit
 ```js
 $('#form').serializeArray()
 ```
@@ -133,9 +133,7 @@ if(selected == "css"){
 }
 ```
 
-
-
-##Events
+## Events
 
 ```text
 selectbox- change()
