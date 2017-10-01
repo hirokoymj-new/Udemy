@@ -1,4 +1,4 @@
-## What is CORS?
+# What is CORS?
 - CORS stands for Cross Origin Resource Sharing
 - CORS allows you to break the same origin policy of a browser.
 - Test CORS Site: http://test-cors.org/
