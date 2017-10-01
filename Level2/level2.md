@@ -463,6 +463,98 @@ var output = formArray.reduce(function(acc, currentValue, index){
 console.log(output); //{ firstname: 'Hiroko', lastname: 'Yamaji' }
 ```
 
+## Question 21
+- Iterate object
+
+```js
+var obj = {a: 24, b: 12, c:21, d:15};
+```
+
+## Answer
+- use `for..In` loop
+```js
+for(var key in obj){
+    console.log(obj[key]);
+}
+```
+
+## Question 22
+- Get keys in Object
+
+```js
+var obj = {a: 24, b: 12, c:21, d:15};
+```
+
+#Answer
+```js
+var keyArray = Object.keys(obj);
+console.log(keyArray); //[ 'a', 'b', 'c', 'd' ]
+```
+
+## Question 23
+- Sort objects by value
+```js
+var obj = {a: 24, b: 12, c:21, d:15};
+```
+
+## Answer
+1. Get key values array in Object.
+2. Sort key values.
+3. create new obje by sorted order.
+
+```js
+var obj = {a: 24, b: 12, c:21, d:15};
+var keys = Object.keys(obj);
+var newKeys = keys.sort(function(a, b){
+    return obj[b]- obj[a];
+});
+
+var sortableObj = newKeys.reduce(function(acc, currentValue){
+    acc[currentValue] = obj[currentValue];
+    return acc;
+}, {});
+console.log(sortableObj);//{ a: 24, c: 21, d: 15, b: 12 }
+```
+
+
+## Question 24
+Count the items and sorted by large count.
+
+
+```js
+var array = ["red", "yellow", "red", "blue", "blue", "red"];
+//Sort larger count item.
+// red: 3 times, blue: 2 times, yellow: 1 time
+// [ 'red', 'blue', 'yellow' ]
+```
+
+## Answer 24
+
+```js
+var newArray = array.reduce(function(acc, currentValue){
+    var existing = acc.hasOwnProperty(currentValue);
+    if(existing){
+        acc[currentValue]++;
+    }else{
+        acc[currentValue] = 1;
+    }
+    return acc;
+}, {});
+
+console.log(newArray); //{ red: 3, yellow: 1, blue: 2 }
+
+// get keys in object
+var keys = Object.keys(newArray); //[ 'red', 'yellow', 'blue' ]
+
+// Sorted keys
+var newKeys = keys.sort(function(a, b){
+    return newArray[b] - newArray[a];
+});
+console.log(newKeys); //[ 'red', 'blue', 'yellow' ]
+```
+
+
+
 
 
 
@@ -472,3 +564,28 @@ console.log(output); //{ firstname: 'Hiroko', lastname: 'Yamaji' }
 - (9/13) https://www.sitepoint.com/5-typical-javascript-interview-exercises/
 - (9/15) https://www.sitepoint.com/5-typical-javascript-interview-exercises/
 - (9/22) https://www.thatjsdude.com/index.html
+- (bubble sort) https://en.wikipedia.org/wiki/Sorting_algorithm#Bubble_sort
+
+- [IN operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in)
+```js
+function bubbleSort(array) {
+  var done = false;
+  while (!done) {
+    done = true;
+    for (var i = 1; i < array.length; i += 1) {
+      if (array[i - 1] > array[i]) {
+        done = false;
+        var tmp = array[i - 1];
+        array[i - 1] = array[i];
+        array[i] = tmp;
+      }
+    }
+  }
+
+  return array;
+}
+
+var numbers = [12, 10, 15, 11, 14, 13, 16];
+bubbleSort(numbers);
+console.log(numbers);
+```
