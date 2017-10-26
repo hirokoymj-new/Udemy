@@ -74,26 +74,129 @@ $('#form').serializeArray()
 - `:checked`
 - `option:selected`
 
-**selectbox**
+## Selectbox
+
+```html
+<select name="department" id="department" multiple="multiple">
+    <option value="HR">HR</option>
+    <option value="IT">IT</option>
+    <option value="Accounting">Accounting</option>
+</select>
+
+<select name="skills" id="skills">
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
+```
+
+
+```js
+$("#department").on('change', function(){
+    var selected = $("#department").val();
+    console.log(selected);
+
+
+    if($(this).add("option:selected").val() == "IT"){
+        console.log("IT is selected.");
+    }else if( $('[name=department] option:selected').val() == "HR"){
+        console.log("HR is selected");
+    }
+
+});
+
+$('#skills').on('change', function(){
+    var selected = $(this).val();
+    console.log(selected);
+
+    if(selected == "CSS"){
+        console.log("css is selected");
+    }
+});
+```
+
+
 
 ```js
 var selectedOne = $('#selectbox').val()
 var multiple = $("#selectbox").val()
 ```
 
-**radio button**
+## Radio button
+
+```html
+<input type="radio" name="commute" value="car" id="commute_car" /><label for="commute_car">car</label>
+<input type="radio" name="commute" value="train" id="commute_train"/><label for="commute_train">train</label>
+<input type="radio" name="commute" value="bus" id="commute_bus"/><label for="commute_bus">bus</label>
+```
+
+```js
+$("[name=commute]").on("click", function() {
+
+    var checked = $(this).add(":checked").val();
+    console.log(checked);
+
+    var array = [];
+    $('[name=commute]:not(":checked")').each(function () {
+        array.push($(this).val());
+    });
+    console.log(array);
+
+    var array2 = [];
+    $('[name=hobby]:not(":checked")').each(function(){
+    array2.push($(this).val());
+    });
+    console.log(array2);
+});
+```
+
+
 ```js
 $("#radio").val();
 ```
 
-**checkbox**
-```js
-$("#checkbox:checked").each()
+
+
+## Checkbox
+- multiple 
+
+```html
+<form id="hobbyForm">
+    <input type="checkbox" name="hobby" value="yoga" id="hobby_yoga" /><label for="hobby_yoga">Yoga</label>
+    <input type="checkbox" name="hobby" value="golf" id="hobby_golf"/><label for="hobby_golf">Golf</label>
+    <input type="checkbox" name="hobby" value="tennis" id="hobby_tennis"/><label for="hobby_tennis">tennis</label>
+    <input type="checkbox" name="hobby" value="soccer" id="hobby_soccer"/><label for="hobby_soccer">Soccer</label>
+    <hr>
+    <input type="submit" value="submit">
+</form>
 ```
+```js
+$("[name=hobby]").on("click", function() {
+
+    // Get checked item count
+    var len = $('[name=hobby]:checked').length;
+    console.log(len);
+
+    // get all checked items => each()
+    var array = [];
+    $("[name=hobby]:checked").each(function(){
+        array.push($(this).val());
+    });
+    console.log(array);
+
+    // Get Not checked item
+    var array2 = [];
+    $('[name=hobby]:not(":checked")').each(function(){
+         array2.push($(this).val());
+    });
+    console.log(array2);
+});
+```
+
 
 ## Is selected?
 
-**checkbox**
+
 ```html
 <input type="checkbox" name="hobby" value="yoga" id="hobby_yoga" >
 <input type="checkbox" name="hobby" value="golf" id="hobby_golf">
