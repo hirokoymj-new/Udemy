@@ -1,8 +1,11 @@
 "use strict";
 
 var addressbook = (function(){
+
     var data = {
-        addressbook: []
+        addressbook: [],
+        firstName: "HIROKO",
+        lastName: "Yamaji"
     };
 
     function saveAddress(formArray){

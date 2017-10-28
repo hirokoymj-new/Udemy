@@ -553,10 +553,79 @@ var newKeys = keys.sort(function(a, b){
 console.log(newKeys); //[ 'red', 'blue', 'yellow' ]
 ```
 
+## Question 25
+- Array, map(), indexOf()
+
+```js
+var data = {
+    products : [
+        {"id": 1, "product_name": 'Casma', "qty": 1, "price": 38},
+        {"id": 2, "product_name": 'Yola', "qty": 1, "price": 48},
+        {"id": 3, "product_name": 'Casma', "qty": 1, "price": 38},
+        {"id": 4, "product_name": 'Yola', "qty": 1, "price": 48}
+    ],
+    userId: '555',
+    orderId: 10
+};
+```
+
+- Check if id=5 exists in product array
+```js
+var existing_index1 = data.products.map(function(value, index){
+    return value.id;
+}).indexOf(5);
+console.log(existing_index1); //-1
+```
+
+- Check if id=3 exists in product array
+
+```js
+var existing_index2 = data.products.map(function(value, index){
+    return value.id;
+}).indexOf(3);
+console.log(existing_index2); //2
+```
 
 
+## Question 26 JSON
+- What is JSON?
+- JSON stands for **J**ava**S**cript **O**bject **N**otation
+- JSON is **text**, written with JavaScript object notation.
 
+Syntax rules
+- Data is in name/value pairs
+- Data is separated by commas
+- Curly braces hold objects
+- Square brackets hold arrays
 
+```js
+var person = { "name":"John", "age":31, "city":"New York" };
+```
+
+```js
+{"employees":[
+    { "firstName":"John", "lastName":"Doe" },
+    { "firstName":"Anna", "lastName":"Smith" },
+    { "firstName":"Peter", "lastName":"Jones" }
+]}
+```
+**Sending Data**
+
+If you have data stored in a JavaScript object, you can convert the object into JSON, and send it to a server:
+```js
+var myObj = { "name":"John", "age":31, "city":"New York" };
+var myJSON = JSON.stringify(myObj);
+window.location = "demo_json.php?x=" + myJSON;
+```
+
+**Receiving Data**
+
+If you receive data in JSON format, you can convert it into a JavaScript object:
+```js
+var myJSON = '{ "name":"John", "age":31, "city":"New York" }';
+var myObj = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myObj.name;
+```
 
 ## References:
 - (9/11) https://www.upwork.com/i/interview-questions/javascript/
