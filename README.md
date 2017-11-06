@@ -19,3 +19,6 @@
 - [Function Constructor - 2](https://github.com/hirokoymj/Udemy/blob/master/19_ConstructorPattern2.md)
 - [Prototype Pattern](https://github.com/hirokoymj/Udemy/blob/master/20_PrototypePattern.md)
 - [event bubbling and event capturing](https://github.com/hirokoymj/Udemy/blob/master/22_Events.md)
+- [CORS](https://github.com/hirokoymj/Udemy/blob/master/21_CORS.md)
+- [JSONP](https://github.com/hirokoymj/Udemy/blob/master/22_JSONP.md)
+
