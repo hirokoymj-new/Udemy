@@ -26,6 +26,5 @@ productDB.factory('Weather', function($http) {
 });// end of factory
 ```
 
-
 ### References:
 - https://stackoverflow.com/questions/2067472/what-is-jsonp-all-about
