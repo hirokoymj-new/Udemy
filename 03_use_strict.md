@@ -1,37 +1,41 @@
 # What is "use strict"?
 
 1. A variable must declare using `var` keyword, which could avoid accidentally creating global variables.
-2. In `strict mode`, we can use a variable only declared `var` keyword, which is help to find a typo.  
-3. Stop using reserved Javascript keywords such as `let` 
-4. Use strict mode can't delete variable or a function.
+2. User strict mode **STOP `this` being a global valuable** and set "**undefined**" as default value.
+
+- Look at below table. In JavaScript, this is unstable and it is different how this is called. In Non-strict mode, this refers a global valuable and most of the case, it is confused and stop being as a global valuable.   
+![this](http://www.hirokoymj.com/images/JavaScript-this_updated2.png)
 
 
+## Global Scope
 
-**Example 1**
+**Non-strict mode**
 ```js
-"use strict";
-var foo =1;
-delete foo; // !! Uncaught SyntaxError: Delete of an unqualified identifier in strict mode. !!
-
-function moo(){}
-delete moo;
-
+console.log(this); // Window Object
 ```
 
-**Example 2**
+**Strict mode**
 ```js
 "use strict";
-
-var let = 1;//Uncaught SyntaxError: Unexpected strict mode reserved word
-console.log(let);
+console.log(this); // Window Object
 ```
 
-**Example 3**
-```js
-"use strict";
+## Function Scope
+**Non-strict mode**
 
-function moo(arg){
-  delete arg;//Uncaught SyntaxError: Delete of an unqualified identifier in strict mode.
+```js
+function test(){
+    console.log(this);
 }
-
+test();// Window object
 ```
+
+**Strict mode**
+```js
+"use strict";
+function test(){
+    console.log(this);
+}
+test();// undefined
+```
+"strict mode" set "**undefined**" as default value.
