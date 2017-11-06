@@ -1,7 +1,7 @@
 ## JSONP
 
 Below screenshot is the example for JSONP. The main domain is _webapp.hirokoymj.com_ and to display weather information, OpenWeather API (http://api.openweathermap.org/data/2.5/weather) is called. 
-Because of same origin resource policy, when different domain is called it will be an error. 
+Because of **same origin resource policy** in web browser, if the application below doesn't use jsonp, it will be error.
 
 ![jsonp](http://www.hirokoymj.com/images/images_udemy/JSONP_example.png)
 
