@@ -1,26 +1,31 @@
 ## JSONP
 
-- JSONP only works GET.
+Below screenshot is the example for JSONP. The main domain is _webapp.hirokoymj.com_ and to display weather information, OpenWeather API (http://api.openweathermap.org/data/2.5/weather) is called. 
+Because of same origin resource policy, when different domain is called it will be an error. 
 
-- In case you're on domain example.com, and you want to make a request to domain example.net, it is CORD(Cross Origin Resource Sharing) and a browser block and won't work correctly.
-
-- When you make your request to a server that is JSONP enabled, 
-you pass a special parameter that tells the server a little bit about your page. That way, the server is able to nicely wrap up its response in a way that your page can handle.
-For example, say the server expects a parameter called `callback` to enable its JSONP capabilities. Then your request would look like:
+![jsonp](http://www.hirokoymj.com/images/images_udemy/JSONP_example.png)
 
 
-- These days (2015), CORS is the recommended approach vs. JSONRequest. JSONP is still useful for older browser support, but given the security implications, unless you have no choice CORS is the better choice.
-**callback=callback**
+
+
+
+## Angular $http.jsonp()
+
+- [$http.jsonp](https://docs.angularjs.org/api/ng/service/$http#jsonp) 
+
 ```js
-http://www.example.net/sample.aspx?callback=mycallback
+productDB.factory('Weather', function($http) {
+    var dataObj = {};
+
+    dataObj.getOpenWeatherAPI = function(unit, longitude, latitude){
+        var url = "api.openweathermap.org/data/2.5/weather?q=London&APPD=123&callback=JSON_CALLBACK";
+        return $http.jsonp(url);//<----------- Open Weather API is called from different domain which is webapp.hirokoymj.com.
+    };
+
+    return dataObj;
+});// end of factory
 ```
 
 
-
-**JSONP enable**
-```js
-mycallback({ foo: 'bar' });
-```
 ### References:
-
-https://stackoverflow.com/questions/2067472/what-is-jsonp-all-about
+- https://stackoverflow.com/questions/2067472/what-is-jsonp-all-about
