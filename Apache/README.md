@@ -1,29 +1,35 @@
 # Apache set up virtual host
 
-**Virtual host 1**
-http://localhost/
+Virtual host name: **http://loginapp.com/**
 
-**Virtual host 2**
-http://loginapp.com/login
-
-### httpd.conf
-
+### 1. Edit httpd.conf
+- Location
 ```text
 cd /etc/apache2/
 ```
 
-Enable httpd-vhost.conf
+- Uncomment Primary Server
+```text
+ServerName localhost:80
+```
+
+- Enable httpd-vhost.conf
 
 ```text
 # Virtual hosts
 Include /private/etc/apache2/extra/httpd-vhosts.conf
 ```
 
-### httpd-vhosts.conf
+
+### 2. Edit httpd-vhosts.conf
+
+- Location
 
 ```text
 cd /etc/apache2/extra/
 ```
+
+- Edit httpd-vhost.conf
 
 ```text
 <VirtualHost *:80>
@@ -36,7 +42,9 @@ cd /etc/apache2/extra/
 </VirtualHost>
 ```
 
-#### hosts
+### 3. add virtual host in `hosts` file
+
+- Location
 ```text
 /private/etc/hosts
 ```
@@ -47,7 +55,7 @@ cd /etc/apache2/extra/
 127.0.0.1	www.loginapp.com
 ```
 
-### Apache restart, configtest, see process
+### 4. Apache restart, configtest, see process
 
 ```text
 ps aux | grep httpd
