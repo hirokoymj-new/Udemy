@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Form</title>
+</head>
+<body>
+
+<form >
+    <input type="checkbox" name="hobby" id="inlineCheckbox1" value="option1"> 1
+    <input type="checkbox" name="hobby" id="inlineCheckbox2" value="option2"> 2
+    <input type="checkbox" name="hobby" id="inlineCheckbox3" value="option3"> 3
+</form>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function(){
+    $("[name=hobby]").on('click', function(){
+        var len = $("[name=hobby]:checked").length;
+        console.log(len);
+
+        var array1 = [];
+        $("[name=hobby]:checked").each(function(){
+            array1.push($(this).val());
+        })
+        console.log(array1);
+
+        console.log("inlineCheckbox1 is checked? " + $('#inlineCheckbox1').is(":checked"));
+
+    });
+});
+
+
+
+</script>
+
+</body>
+</html>

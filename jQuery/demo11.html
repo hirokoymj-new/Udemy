@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Form</title>
+</head>
+<body>
+
+
+<ul>
+    <li>test</li>
+    <li>test</li>
+    <li>test</li>
+</ul>
+
+<table border="1">
+    <tr>
+        <td>item1</td>
+        <td>item1</td>
+        <td>item1</td>
+    </tr>
+</table>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function () {
+    $("ul ~ table").css({'background': 'yellow'});
+})
+</script>
+
+</body>
+</html>

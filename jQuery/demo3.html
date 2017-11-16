@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h2>This is a heading</h2>
+
+<p>This is a paragraph 1.</p>
+<p>This is a paragraph 2.</p>
+<p>This is a paragraph 3.</p>
+<p>This is a paragraph 4.</p>
+<p>This is a paragraph 5.</p>
+<p>This is a paragraph 6.</p>
+
+<button>Click me</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("p:first").css({'background': "red"});
+            //$("p:eq(0)").css({'background': "orange"});
+            $("p:eq(1)").css({'background': "red"});
+            $("p:eq(2)").css({'background': "pink"});
+            $("p:eq(3)").css({'background': "aqua"});
+            $("p:eq(4)").css({'background': "yellow"});
+            //$("p:eq(5)").css({'background': "green"});
+            $("p:last").css({'background': "blue"});
+
+
+        });
+    });
+</script>
+
+</body>
+</html>
