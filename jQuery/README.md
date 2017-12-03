@@ -1,7 +1,7 @@
 # jQuery
 
 **1. Get images in hero div**
-- each()
+- [each(index, value)](https://api.jquery.com/each/)
 
 ```js
 $('.hero-slider img').each(function(){
@@ -9,10 +9,11 @@ $('.hero-slider img').each(function(){
 });
 ```
 
-- append()
-- prepent()
-- before()
-- after()
+- append() - To insert content at the end of the selected elements
+- prepent() - To insert content at the beginning of the selected elements.
+- before() - Insert contents before an element.
+- after() - Insert contents after an selected element.
+
 ```js
 $('#hero').after('<img src="//img1.beachbodyimages.com/beachbody/image/upload/v1472595736/bbweb/homepage/header_slider_slide2_1350.jpg">');
 ```
@@ -34,23 +35,33 @@ $("[title~=beautiful]") - All elements with title attribute that contains "beaut
 
 
 ### Example
-**$("p:first-child")**
+- [Quick Selector Tester](https://www.w3schools.com/jquery/trysel.asp)
+
+**first vs first:child**
+- $("ul li:first") - The first <b>li</b> element of ther parent.
+- $("ul li:first-child") - All <b>li</b> elements that are the first child of their parent <b>ul</b>.
+- [demo]()
 
 ```html
 <p>List 1:</p>
 <ul>
-    <li>Coffee</li> //<----$("p:first-child")
-    <li>Milk</li>
-    <li>Tea</li>
+  <li>Coffee</li>//<----- $("ul li:first"), $("ul li:first-child")
+  <li>Milk</li>
+  <li>Tea</li>
 </ul>
 
 <p>List 2:</p>
 <ul>
-    <li>Coffee</li> //<----$("p:first-child")
-    <li>Milk</li>
-    <li>Tea</li>
+  <li>Coffee</li>//<----- $("ul li:first-child")
+  <li>Milk</li>
+  <li>Tea</li>
 </ul>
 ```
+
+
+
+
+
 
 **$('div>p')** - direct child from their parents
 ```html

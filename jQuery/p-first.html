@@ -5,23 +5,20 @@
 </head>
 <body>
 
-<p>
-    <b>List 1</b>
-    <ul>
-        <li>Coffee</li>
-        <li>Milk</li>
-        <li>Tea</li>
-    </ul>
-</p>
+<p>List 1:</p>
+<ul>
+    <li>Coffee</li>
+    <li>Milk</li>
+    <li>Tea</li>
+</ul>
 
-<p>
-    <b>List 2</b>
-    <ul>
-        <li>Coffee</li>
-        <li>Milk</li>
-        <li>Tea</li>
-    </ul>
-</p>
+<p>List 2:</p>
+<ul>
+    <li>Coffee</li>
+    <li>Milk</li>
+    <li>Tea</li>
+</ul>
+
 
 <button>Click me</button>
 
@@ -29,7 +26,8 @@
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $("ul li:first-child").css({'color': 'red'});
+            //$("p:first").css({'color': 'red'});
+            $("p:first-child").length;
         });
     });
 </script>
