@@ -37,10 +37,10 @@ $("[title~=beautiful]") - All elements with title attribute that contains "beaut
 ### Example
 - [Quick Selector Tester](https://www.w3schools.com/jquery/trysel.asp)
 
-**first vs first:child**
-- $("ul li:first") - The first <b>li</b> element of ther parent.
-- $("ul li:first-child") - All <b>li</b> elements that are the first child of their parent <b>ul</b>.
-- [demo]()
+## first vs first:child
+- $("ul li:first") - The first `<li>` element of ther parent.
+- $("ul li:first-child") - All `<li>` elements that are the first child of their parent `<ul>`.
+- [demo](https://github.com/hirokoymj/Udemy/blob/master/jQuery/p-first.html)
 
 ```html
 <p>List 1:</p>
@@ -58,12 +58,13 @@ $("[title~=beautiful]") - All elements with title attribute that contains "beaut
 </ul>
 ```
 
+## $(div > p) vs $(div p)
 
+- $(div > p) - All `<p>` elements that are a **direct child** of a `<div>` element.
+- $(div p) - All `<p>` elements that are **descendants** of a `<div>` element.
+- [Quick Selector Tester](https://www.w3schools.com/jquery/trysel.asp)
+ 
 
-
-
-
-**$('div>p')** - direct child from their parents
 ```html
 <p>This is a paragraph.</p>
 <p>This is another paragraph.</p>
@@ -76,43 +77,131 @@ $("[title~=beautiful]") - All elements with title attribute that contains "beaut
 
 <div>
     <span>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <p>test</p><----$("div>p"), $("div p")  -->
+        <p>test</p><----$("div>p"), $("div p")  -->
+        <p>test</p><----$("div>p"), $("div p")  -->
     </span>
 </div>
 ```
 
-**$('div p')** - `descendant`
-```html
-<div>
-    <p>test</p> <----$("div p") -->
-    <p>test</p> <----$("div p") -->
-    <p>test</p> <----$("div p") -->
-</div>
-<div>
-    <span>
-        <p>test</p> <----$("div p") -->
-        <p>test</p> <----$("div p") -->
-        <p>test</p> <----$("div p") -->
-    </span>
-</div>
-```
+## nth-child
+- [:nth-child()](https://api.jquery.com/nth-child-selector/)
+- The index of each child to match, **starting with 1**
 
-**$("ul ~ table")** `sibling`
 ```html
+<p>List 1:</p>
 <ul>
-    <li>test</li>
-    <li>test</li>
-    <li>test</li>
+    <li>Coffee</li> <----$("ul li:nth-child(1)")
+    <li>Milk</li>   <----$("ul li:nth-child(2)")
+    <li>Tea</li>    <----$("ul li:nth-child(3)")
 </ul>
 
-<table border="1">
-    <tr>
-        <td>item1</td>
-        <td>item1</td>
-        <td>item1</td>
-    </tr>
-</table>
+<p>List 2:</p>
+<ul>
+    <li>Coffee</li> <----$("ul li:nth-child(1)")
+</ul>
+
+<p>List 3:</p>
+<ul>
+    <li>A</li>  <----$("ul li:nth-child(1)")
+    <li>B</li>  <----$("ul li:nth-child(2)")
+    <li>C</li>  <----$("ul li:nth-child(3)")
+    <li>D</li>
+</ul>
 ```
 
+## eq() selector
+- [.eq(index)](https://api.jquery.com/eq/)
+- An index is the **starting with 0**
+
+```html
+<p>Test</p> <----$("p:eq(0)")
+<p>Test</p> <----$("p:eq(1)")
+<p>Test</p> <----$("p:eq(2)")
+<p>Test</p> <----$("p:eq(3)")
+```
+
+
+## Next Adjacent Selector ("prev + next")
+
+- [next Adjacent Selector](http://api.jquery.com/next-adjacent-Selector/)
+- ("prev + next") - Selects all next elements matching "next" that are **immediately** preceded by a sibling "prev".
+
+```html
+<ul>
+    <li>list1</li>
+    <li>list1</li>
+</ul>
+<h3>This is h3 next to unordered list ul</h3> //<----$("ul+h3")
+
+<div>This is div</div>
+<h3>This is h3 next to div</h3> //<----$("div+h3")
+<h3>This is h3</h3>
+
+<p>This is a paragraph tag</p>
+<h3>This is h3 next to P</h3> //<----$("p+h3")
+<h3>This is 2nd h3</h3>
+<h3>This is 3rd h3</h3>
+```
+
+
+## Next Siblings Selector (“prev ~ siblings”)
+
+- https://api.jquery.com/next-siblings-selector/
+
+**Example ("ul~h3")**
+
+```html
+<ul>
+    <li>list1</li>
+    <li>list1</li>
+</ul>
+<h3>This is h3 next to unordered list ul</h3> //<----$("ul~h3")
+
+<div>This is div</div>
+<h3>This is h3 next to div</h3> //<----$("ul~h3")
+<h3>This is h3</h3>             //<----$("ul~h3")
+
+<p>This is a paragraph tag</p>
+<h3>This is h3 next to P</h3> //<----$("ul~h3")
+<h3>This is 2nd h3</h3>       //<----$("ul~h3")
+<h3>This is 3rd h3</h3>       //<----$("ul~h3")
+```
+
+**Example ("div~h3")**
+```html
+<ul>
+    <li>list1</li>
+    <li>list1</li>
+</ul>
+<h3>This is h3 next to unordered list ul</h3> 
+
+<div>This is div</div>
+<h3>This is h3 next to div</h3> //<----$("div~h3")
+<h3>This is h3</h3>             //<----$("div~h3")
+
+<p>This is a paragraph tag</p>
+<h3>This is h3 next to P</h3> //<----$("div~h3")
+<h3>This is 2nd h3</h3>       //<----$("div~h3")
+<h3>This is 3rd h3</h3>       //<----$("div~h3")
+```
+
+**Example ("p~h3")**
+```html
+<ul>
+    <li>list1</li>
+    <li>list1</li>
+</ul>
+<h3>This is h3 next to unordered list ul</h3> 
+
+<div>This is div</div>
+<h3>This is h3 next to div</h3> 
+<h3>This is h3</h3>             
+
+<p>This is a paragraph tag</p>
+<h3>This is h3 next to P</h3> //<----$("p~h3")
+<h3>This is 2nd h3</h3>       //<----$("p~h3")
+<h3>This is 3rd h3</h3>       //<----$("p~h3")
+```
+
+# Form Selector

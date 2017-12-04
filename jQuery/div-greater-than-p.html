@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <title></title>
 </head>
 <body>
 
-<h2>This is a heading</h2>
+<h2>heading</h2>
 
 <p>This is a paragraph.</p>
 <p>This is another paragraph.</p>
@@ -25,13 +25,21 @@
 </div>
 
 
+<button id="demo1">Select $('div p')</button>
+<button id="demo2">Select $('div>p')</button>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
    // $('div>p').css({'color': 'red'});
 
-    $('div p').css({'color': 'blue'});
+   $('#demo1').on('click', function () {
+       $('div p').css({'color': 'red'});
+   });
 
+   $('#demo2').on('click', function () {
+       $('div>p').css({'color': 'blue'});
+   });
 
 </script>
 </body>

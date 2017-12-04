@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Selector- nth-child</title>
+</head>
+<body>
+<style>
+    .red_text{
+        color: red;
+    }
+</style>
+<p>List 1:</p>
+<ul>
+    <li>Coffee</li>
+    <li>Milk</li>
+    <li>Tea</li>
+</ul>
+
+<p>List 2:</p>
+<ul>
+    <li>Coffee</li>
+</ul>
+
+
+<p>List 3:</p>
+<ul>
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+</ul>
+
+
+<button id="btn0">Select $('li:nth-child(0)')</button>
+<button id="btn1">Select $('li:nth-child(1)')</button>
+<button id="btn2">Select $('li:nth-child(2)')</button>
+<button id="btn3">Select $('li:nth-child(3)')</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#btn0").click(function(){
+            $('li').removeClass();
+            $('li:nth-child(0)').addClass('red_text');
+        });
+
+        $("#btn1").click(function(){
+            $('li').removeClass();
+            $('li:nth-child(1)').addClass('red_text');
+        });
+
+        $("#btn2").click(function(){
+            $('li').removeClass();
+            $('li:nth-child(2)').addClass('red_text');
+        });
+
+        $("#btn3").click(function(){
+            $('li').removeClass();
+            $('li:nth-child(3)').addClass('red_text');
+        });
+
+    });
+</script>
+
+</body>
+</html>

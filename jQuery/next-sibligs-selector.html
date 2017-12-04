@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>next adjacent demo</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<ul>
+    <li>list1</li>
+    <li>list1</li>
+    <li>list1</li>
+</ul>
+<h3>This is h3 next to unordered list&lt;ul&gt;</h3>
+
+<div>This is div</div>
+<h3>This is h3 next to &lt;div&gt;</h3>
+<h3>This is h3</h3>
+
+<p>This is a paragraph tag</p>
+<h3>This is h3 next to &lt;p&gt;</h3>
+<h3>This is 2nd h3</h3>
+<h3>This is 3rd h3</h3>
+
+
+<button id="btn2">Select h3 next to <b>ul</b></button>
+<button id="btn3">Select h3 next to <b>div</b></button>
+<button id="btn4">Select h3 next to <b>p</b></button>
+
+<script>
+$(document).ready(function(){
+    $('#btn1').on('click', function(event){
+        event.preventDefault();
+        $("label+input").css({"color": "red", "border-color": "red"});
+    });
+
+    $('#btn2').on('click', function(){
+        $("ul~h3").css({"color": "red"});
+    });
+
+    $('#btn3').on('click', function(){
+        $("div~h3").css({"color": "orange"});
+    });
+
+    $('#btn4').on('click', function(){
+        $("p~h3").css({"color": "pink"});
+    });
+
+});
+
+</script>
+
+</body>
+</html>
