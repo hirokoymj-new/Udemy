@@ -4,7 +4,7 @@
 2. User strict mode **STOP `this` being a global valuable** and set "**undefined**" as default value.
 
 - Look at below table. In JavaScript, this is unstable and it is different how this is called. In Non-strict mode, this refers a global valuable and most of the case, it is confused and stop being as a global valuable.   
-![this](http://www.hirokoymj.com/images/JavaScript-this_updated2.png)
+![this](images_Udemy/JS_This.png)
 
 
 ## Global Scope

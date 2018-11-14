@@ -1,5 +1,7 @@
 # this
 
+![](images_Udemy/JS_This.png)
+
 ## Global Scope
 
 **Non-strict mode**
