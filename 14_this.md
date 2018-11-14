@@ -147,7 +147,7 @@ person.getName();
 ```
 ## Summary
 
-![this](http://www.hirokoymj.com/images/JavaScript-this_updated2.png)
+![this](images_Udemy/JS_This.png)
 
 ## Excercise
 
